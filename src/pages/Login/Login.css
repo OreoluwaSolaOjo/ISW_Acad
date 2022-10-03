@@ -1,5 +1,5 @@
 
-
+/* create new blog form */
 .registeration-div {
   max-width: 400px;
   margin: 0 auto;
@@ -18,11 +18,7 @@
     max-height: 200px;
   
   }
-.registeration-div h2 {
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 30px;
-}
+
 .registeration-div input, .registeration-div textarea, .registeration-div select {
   width: 100%;
   padding: 0.8rem 0.6rem;

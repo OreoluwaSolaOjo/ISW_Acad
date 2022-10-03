@@ -19,6 +19,7 @@ import Footer from "../components/Footer/Footer";
 import SimpleSlider from "../components/Slider/Slider";
 import Slider from "../components/Slider/Slider";
 import CustomizedAccordions from "../components/Accordion/Accordion";
+import { Link } from "react-router-dom";
 
 const LandingPage = () => {
     const displayYes = "flex";
@@ -40,7 +41,10 @@ const LandingPage = () => {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias voluptas voluptatem consectetur mollitia, aspernatur aut distinctio exercitationem saepe, esse ipsam hic, velit nostrum? Quae dolorum iusto sint amet adipisci ea?
         </p>
         <div>
-    <Button styleClass='blue-button' value='Apply Now' />
+
+  
+  <Button styleClass='blue-button' value='Apply Now' />
+ 
 <Button styleClass='no-border-button' value='Watch Video' />
         </div>
         </div>

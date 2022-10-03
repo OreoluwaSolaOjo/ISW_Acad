@@ -3,6 +3,7 @@ import './Navbar.css';
 import ISWAcademyLogo from '../../assets/InterswitchAcademyLogo.png';
 import Button from '../Button/Button';
 import rocket from '../../assets/rocket.png';
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -23,6 +24,9 @@ const Navbar = () => {
 </div>
 
    {/* <Button styleClass='blue-button' value='Apply Now'  /> */}
+   <Link to="/registeration">
+                      
+                 
    <div className='applynow-div'>
   <button>
     Apply Now
@@ -31,6 +35,7 @@ const Navbar = () => {
     <img src={rocket} alt="" />
   </div>
   </div>
+  </Link>
     
         </div>
      );

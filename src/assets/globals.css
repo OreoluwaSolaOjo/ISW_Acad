@@ -28,3 +28,8 @@ h2{
   font-size: 1.5rem;
   color: var(--ash-dark);
 }
+
+a{
+  text-decoration: none;
+
+}
