@@ -1,0 +1,66 @@
+.cardOne{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-height: 70vh;
+    width: 20%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 2%;
+}
+.cardone-imagediv{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.cardone-imagediv img{
+    height: 50px;
+    width: 50px;
+}
+.cardone-heading{
+    text-align: center;
+}
+.cardone-maintext{
+ text-align: center;  
+ white-space: wrap; 
+}
+h3{
+    font-size: 1.2rem;
+    color: var(--ash-dark);
+}
+
+.cardOne > .cardone-secondimage {
+display: none;
+}
+/* card two */
+.cardTwo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-height: 100vh;
+    width: 25%;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+.cardtwo-imagediv{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.cardtwo-imagediv img{
+    height: 100px;
+    width: 100px;
+}
+.cardtwo-heading{
+    text-align: center;
+}
+.cardtwo-maintext{
+ text-align: center;  
+ white-space: wrap; 
+}
+.cardtwo-secondimage{
+    height: 25rem;
+   width: 100%;
+   background-repeat: no-repeat, no-repeat;
+}

@@ -1,0 +1,262 @@
+.landingpage-section1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+    padding: 2% 4% 2% 4%;
+}
+.landingpage-section1-left{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.landingpage-section1-left span{
+    color: var(--blue-light);
+}
+.landingpage-section1-right{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 50%;
+    padding: 2% 0 2% 0;
+}
+.landingpage-section1-right img{
+    max-height: 450px;
+    max-width: 450px;
+    
+    
+}
+.landingpage-section1-left > div > Button{
+    margin-left: 0px !important;
+}
+/* Landing Page Section 2 */
+.landingpage-section2{
+  text-align: center;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+.landingpage-section2 h1{
+    text-align: center;
+    color: var(--ash-dark);
+  }
+.landingpage-section2-carddiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   
+}
+.landingpage-section2-carddiv-row{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10%;
+}
+
+.underline-effect{
+    background-image: linear-gradient(120deg, var(--whiteshade) 0%, var(--blue-light) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.2em;
+    background-position: 0 88%;
+    transition: background-size 0.25s ease-in;
+  
+  
+}
+.landingpage-section3{
+    display: flex;
+    flex-direction: column;
+
+}
+.landingpage-section3-image img{
+    height: 400px;
+    width: 400px;
+}
+.landingpage-section3-heading-main{
+    display: "flex";
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: var(--blue-light);
+    color: var(--whiteshade);
+    border: 5px solid var(--whiteshade);
+    margin-bottom: 5%;
+    border-radius: 25px;
+}
+.landingpage-section3-heading-main > h3{
+    text-align: center;
+    color: var(--whiteshade);
+}
+.landingpage-section3-heading-main:hover{
+    background-color: var(--red-light);
+
+}
+
+.landingpage-section3-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: "1px solid #ece7e7";
+    width: 100%;
+
+}
+.landingpage-section3-heading-details{
+    display: flex;
+    justify-content: space-around;
+ flex-direction: row;
+}
+.landingpage-section3-image > img{
+border-radius: 25px;
+}
+.landingpage-section3-image{
+    width: 30%;
+}
+.landingpage-section3-heading-details-right{
+    width: 50%;
+  
+}
+.landingpage-section3-heading-details-right-bottomdiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.landingpage-section3-heading-details-right-bottomdiv-line{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.landingpage-section3-heading-details-right-bottomdiv-line-divone{
+    border-bottom: 1px solid var(--ash-light);
+
+}
+.landingpage-section3-heading-details-right-bottomdiv-box{
+    background-color: var(--orange);
+    border-radius: 20px;
+    width: 25%;
+    color: var(--whiteshade);
+    height: 5%;
+    justify-content: center;
+    align-content: center;
+
+}
+.landingpage-section3-heading-details-right-bottomdiv-box p{
+    text-align: center;
+}
+/* .landingpage-section3-heading-details-right > img{
+    height: 15px;
+    width: 15px;
+} */
+.landingpage-section3-heading-details-right-logodiv{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+
+}
+.landingpage-section3-heading-details-right-logodiv >img{
+    display: flex;
+    flex-direction: row;
+    margin-right: 5%;
+    width: 50px;
+    height: 50px;
+}
+.landingpage-section4{
+    height: 50vh;
+    background-color: var(--ash-background);
+    width: 100%;
+    padding-top: 2%;
+    margin-top: 5%;
+}
+.landingpage-section4 > h1{
+    text-align: center;
+}
+.landingpage-section4 > h2{
+    text-align: center;
+    font-size: 3rem;
+}
+
+/* Section 5 */
+.landingpage-section5 > h1 {
+    text-align: center;
+}
+.landingpage-section5{
+    height: 100vh;
+  
+}
+/* Section 6 */
+.landingpage-section6 {
+display: flex;
+padding: 10%;  
+}
+
+.landingpage-section6-maindiv{
+background-color: var(--blue-dark);
+width: 100%;
+border-radius: 1.5rem;
+height: 55vh;
+padding-left: 10%;
+padding-right: 10%;
+
+}
+.landingpage-section6-maindiv > h1{
+    text-align: center;
+    color: var(--whiteshade);
+}
+.landingpage-section6-maindiv > p{
+    text-align: center;
+    color: var(--whiteshade);
+}
+.landingpage-section6-maindiv-button {
+width: 100%;
+
+text-align: center;
+}
+.faqsdiv{
+    display: flex;
+    flex-direction: column;
+}
+.faqsdiv{
+    text-align: center;
+      margin-top: 5%;
+      margin-bottom: 10%;
+  }
+  .faqsdivh1 h1{
+      text-align: center;
+      color: var(--ash-dark);
+    }
+.faqsdivh1 > h1 {
+    text-align: center;
+    margin: auto;
+}
+.FAQs{
+    position: relative;
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+/* .FAQs {
+    position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.FAQs::before {    
+      
+    background-image: url("../assets/moroccan-flower.png");
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.75;
+}

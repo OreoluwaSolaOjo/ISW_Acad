@@ -1,0 +1,33 @@
+.blue-button{
+    border-radius: 10px;
+    background-color: var(--blue-light);
+    color: var(--whiteshade);
+    padding: 2% 6% 2% 6%;
+    max-height: 200px;
+    max-width: 280px;
+    border: none;
+    white-space: nowrap; 
+    margin: 3%;
+}
+.blue-button:hover{
+    color: var(--whiteshade);
+    background-color: var(--red-light);
+
+}
+
+.no-border-button{
+    border-radius: 10px;
+    background-color: var(--whiteshade);
+    color: var(--blue-light);
+    border: 1px solid var(--blue-light);
+    padding: 2% 6% 2% 6%;
+    max-height: 200px;
+    max-width: 280px;
+    white-space: nowrap; 
+    margin: 3%;
+}
+.no-border-button:hover{
+    color: var(--whiteshade);
+    background-color: var(--red-light);
+    border: none;
+}

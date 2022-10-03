@@ -1,0 +1,44 @@
+.footer-main{
+    display: flex;
+  
+    justify-content: space-around;
+    width: 100%;
+}
+.footer-main h2{
+    margin-top: 0px;
+}
+.footer-main-logo-links{
+    width: 30%;
+    
+    
+}
+.footer-main-informationlinks{
+    width: 20%;
+}
+
+.footer-main-contactus{
+    width: 20%;
+}
+.footer-main-logo img{
+    max-width: 12rem;
+    max-height: 11rem;
+}
+.footer-main-socialmedia{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.footer-main-socialmedia > img {
+    max-width: 1.6rem;
+    max-height: 1.6rem;
+}
+.rightreserved{
+border-top: 0.05rem solid var(--ash-dark);
+margin-top: 2%;
+}
+.rightreserved p {
+text-align: center;
+color: var(--ash-dark);
+}

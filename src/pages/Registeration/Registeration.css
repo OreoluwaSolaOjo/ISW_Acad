@@ -1,0 +1,200 @@
+body {
+    font-family: 'Roboto';
+    margin: 0px;
+}
+.maindiv{
+    display: flex;
+    justify-content: space-between;
+ 
+}
+.leftdiv{
+display: flex;
+background-color: #48A7EB;
+width: 18%;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+}
+img{
+    height: 50px;
+    width: 50px;
+    color: white;
+}
+/* when using display flex and flex direction column always add justify content */
+.rightdiv{
+    display: flex;
+    height: 100vh;
+    width: 82%;
+    justify-content: space-around;
+    flex-direction: column;
+    }
+h2{
+    color: #48A7EB;
+}
+p{color: #48A7EB;}
+#rightdiv-rowone{
+  
+    padding-left: 10%;
+}
+#rightdiv-rowtwo{
+display: flex;
+justify-content: space-around;
+
+}
+#rightdiv-rowtwo > div{
+    width: 30%;
+    height: 50vh;
+  
+}
+#rightdiv-rowtwo-one{
+    display: flex;
+    flex-direction: column;
+}
+#rightdiv-rowtwo-one > div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+.rightdiv-rowtwo-two{
+    display: flex;
+    flex-direction: column;
+}
+
+.rightdiv-rowtwo-two > div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+#dropdown-one{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#dropdown-two{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#dropdown-one > div{
+    display: flex;
+    flex-direction: column;
+}
+input{
+height: 25px;
+border-top: none;
+border-left: none;
+border-right: none;
+border-bottom: 1.5px solid #D3D3D3;
+background-color: #D3D3D3;
+
+}
+input:focus{
+    outline: none;
+}
+select{
+    height: 25px;
+    border-top: none;
+border-left: none;
+border-right: none;
+border-bottom: 1.5px solid #D3D3D3;
+}
+select:focus{
+    outline: none;
+}
+#dropdown-two > div{
+    display: flex;
+    flex-direction: column;
+}
+
+#rightdiv-rowthree{
+    display: flex;
+    justify-content: space-between;
+  
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+button{
+    background-color: #48A7EB;
+    border: none;
+    color: white;
+    height: 40px;
+    width: 100px;
+    border-radius: 25px;
+}
+
+.rotateimg180 {
+    -webkit-transform:rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+
+  /* login */
+  .logindiv{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+   flex-direction: column;
+    background-color: white;
+    position: relative;
+  }
+  .logindiv-top{
+    min-height: 50%;
+    background-color: white;
+    position: relative;
+  }
+  .logindiv-bottom{
+    min-height: 50%;
+    background-color: #48A7EB;
+    position: relative;
+  }
+  .mainlogin-div{
+    width: 50%;
+    height: 50vh;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    border-color: 1px solid black;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .mainlogin-div-email{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  .mainlogin-div-email label{
+    text-align: center;
+    margin-bottom: 2%;
+  }
+  .mainlogin-div-email input{
+    border-radius: 15px;
+height: 30px;
+
+  }
+  .mainlogin-div-password{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  .mainlogin-div-password input{
+    border-radius: 15px;
+    
+    height: 30px;
+  }
+  .mainlogin-div-password label{
+    text-align: center;
+    margin-bottom: 2%
+  }
+  h3{
+    font-size: 24px;
+    text-align: center;
+  }

@@ -1,0 +1,30 @@
+:root {
+    --whiteshade: #FFFFFF;
+    --red-light: #EA302B;
+    /* --red-light: #36f306; */
+    --blue-light: #2195EC;
+    /* --blue-light: #479FC8; */
+    --blue-dark: #00425F;
+    --ash-background: #F3F5F6;
+    --ash-light: #7f7f7f;
+    --ash-dark: #191919;
+    --orange: #F5772F;
+  }
+html{
+    font-size: 16px;
+    cursor: pointer;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+body {
+    font-family: 'Mulish';
+    background-color: var(--whiteshade);
+}
+h1{
+    font-size: 2rem;
+    color: var(--ash-dark);
+}
+h2{
+  font-size: 1.5rem;
+  color: var(--ash-dark);
+}
