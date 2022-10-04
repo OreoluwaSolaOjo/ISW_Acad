@@ -14,15 +14,16 @@ const Slider = () => {
       
      },{
         url: test2,
-        name: "Tobi"
-     },
-     {
-        url: test3,
         name: "Adegboyega"
      },
      {
+        url: test3,
+   
+        name: "Tobi"
+     },
+     {
         url: test4,
-        name: "Ganiyat"
+        name: "GB"
      }
     ]
   

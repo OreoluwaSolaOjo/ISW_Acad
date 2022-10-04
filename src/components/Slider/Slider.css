@@ -16,6 +16,9 @@ justify-content: space-between;
 .single-slider-right-div{
     width: 50%;
 } */
+#hthree{
+text-align: right;
+}
 .slider-div{
         width: 100%;
         height: 500px;

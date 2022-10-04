@@ -2,8 +2,8 @@ import { useState } from "react";
 import star from "../../assets/star.png";
 const slideStyles = {
   width: "30%",
-  height: "50%",
-  borderRadius: "10px",
+  height: "80%",
+  borderRadius: "25px",
   backgroundSize: "cover",
   backgroundPosition: "center",
   position: "relative",
@@ -41,7 +41,7 @@ const sliderStyles = {
   height: "100%",
 
 };
-const slideStylesText = {
+const slideStylesText  = {
     display: "flex",
     flexDirection: "column",
     width: "40%",
@@ -79,6 +79,7 @@ const ImageSlider = ({ slides }) => {
   };
   const slideStylesWidthBackgroundd = {
     ...slideStyles,
+    borderRadius: "10px",
     width: "100%",
     height: "100%",
     display: 'flex',
@@ -107,7 +108,8 @@ const ImageSlider = ({ slides }) => {
 
       </div>
       <div style={slideStylesText}>
-        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, dolor?</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis iure error optio ullam blanditiis harum, reprehenderit voluptatum. Unde quos aspernatur ratione! Incidunt quo itaque impedit porro placeat debitis inventore nulla?</p>
+        <h3 id="hthree">- {slides[currentIndex].name}</h3>
         <div className="stylesRatings">
 <img src={star} alt="" />
 <img src={star} alt="" />

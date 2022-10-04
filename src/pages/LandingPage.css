@@ -166,7 +166,19 @@ border-radius: 25px;
     width: 100%;
     padding-top: 2%;
     margin-top: 5%;
+ 
+
 }
+/* .landingpage-section4::after {    
+    background-image: url("../assets/moroccan-flower.png");
+      background-size: cover;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 0.75;
+} */
 .landingpage-section4 > h1{
     text-align: center;
 }
@@ -250,7 +262,6 @@ text-align: center;
 } */
 
 .FAQs::before {    
-      
     background-image: url("../assets/moroccan-flower.png");
       background-size: cover;
       position: absolute;
