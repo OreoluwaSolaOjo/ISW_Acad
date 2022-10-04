@@ -6,9 +6,8 @@ import "./Scrollbutton.css";
 export default function ScrollTop() {
     
   return (
-    <div >
-      <ScrollToTop smooth color="#ffff"  className="scroll" style={{ }}/>
-   
-    </div>
+
+      <ScrollToTop smooth color="white" className="scroll"/>
+  
   );
 }
