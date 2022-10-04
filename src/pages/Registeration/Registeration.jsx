@@ -8,6 +8,7 @@ import "./Registeration.css"
 const Registration = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
+  
     return (
         <div className="registeration-div">
           <img src={InterswitchAcademyLogo} alt="" />
@@ -15,20 +16,30 @@ const Registration = () => {
                 <label>First Name:</label>
                 <input
                     type="text"
-                    {...register("firstName")}
-                    required
+                    {...register("firstName", {required: "Please fill in your first name",
+                    minLength: {
+                    value: 4,
+                    message: "The minimum first name length is 4" 
+                }
+                })}
+                   
                 />
-                {/* {errors.title && <p style={{ color: 'red' }}>Please check your First Name</p>} */}
+                <p className="errors">{errors.firstName?.message}</p>
                 <label>Last Name:</label>
                 <input
                     type="text"
-                    {...register("lastName")}
-                    required
+                    {...register("lastName",{required: "Please fill in your Last name",
+                    minLength: {
+                    value: 4,
+                    message: "The minimum first name length is 4" 
+                }
+                })}
+                
                   
                 />
-                {/* {errors.body && <p style={{ color: 'red' }}>Please check your Surname</p>} */}
-                <label for="gender" {...register("gender")}>Gender</label>
-  <select name="gender" id="gender">
+               <p className="errors">{errors.lastName?.message}</p>
+                <label for="gender" >Gender</label>
+  <select name="gender" id="gender" {...register("gender" , {required: "This is required"})}>
       <option value="male">Male</option>
       <option value="female">Female</option>
 
@@ -37,24 +48,36 @@ const Registration = () => {
                 <label>Email:</label>
                 <input
                     type="text"
-                    {...register("email")}
-                    required
+                    {...register("email" , {required: "Please fill in your Email",
+                    minLength: {
+                    value: 4,
+                    message: "The minimum first name length is 4" 
+                }
+                }
+                )}
+                  
                 
                 />
-                {/* {errors.body && <p style={{ color: 'red' }}>Please check your last name</p>} */}
+                <p className="errors">{errors.email?.message}</p>
+                
                 <label>Password:</label>
                 <input
                     type="password"
-                    {...register("password")}
-                    required
+                    {...register("password" , {required: "Please fill in your Password",
+                    minLength: {
+                    value: 4,
+                    message: "The minimum first name length is 8" 
+                }
+                })}
+                 
                    
                 />
 
 <label for="training_track">Choose a training track:</label>
   <select name="training_track" id="training_track" {...register("training_track")}>
-      <option value="volvo">Software Engineering</option>
-      <option value="saab">Devops</option>
-      <option value="saab">Quality Assurance</option>
+      <option value="softwareengineering">Software Engineering</option>
+      <option value="devops">Devops</option>
+      <option value="qualityassurance">Quality Assurance</option>
   </select>
   <label for="class_of_degree">Class of degree:</label>
   <select name="class_of_degree" id="class_of_degree" {...register("class_of_degree")}>
@@ -68,27 +91,9 @@ const Registration = () => {
   <input type="checkbox" id="nysc" name="nysc" value="nysc" {...register("nysc")}/>
   </div>
 <div className="checkbox">
-<label for="vehicle2"> I have 0-3years experience in my chosen field</label>
+<label for="experience"> I have 0-3years experience in my chosen field</label>
   <input type="checkbox" id="experience" name="experience" value="experience" {...register("experience")}/>
 </div>
-
- 
-
-  
-                {/* {errors.body && <p style={{ color: 'red' }}>Please check your last name</p>} */}
-                {/* <label>Bio:</label>
-                <textarea
-                    type="text"
-                    rows="7"
-                    cols="40"
-                  
-                    required
-                 
-                /> */}
-                {/* {errors.body && <p style={{ color: 'red' }}>Please check your bio</p>} */}
-
-                {/* {!isPending && <button >Add Blog</button>}
-                {isPending && <button disabled>Adding Blog...</button>} */}
                 <Button value='Register' styleClass='blue-button' type="submit"></Button>
                 <p>Already have an account?
                     <Link to="/login">

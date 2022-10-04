@@ -12,7 +12,7 @@
 .blue-button:hover{
     color: var(--whiteshade);
     background-color: var(--red-light);
-
+    transform: scale(1.03,1.1)
 }
 
 .no-border-button{
@@ -30,4 +30,5 @@
     color: var(--whiteshade);
     background-color: var(--red-light);
     border: none;
+    transform: scale(1.03,1.1)
 }

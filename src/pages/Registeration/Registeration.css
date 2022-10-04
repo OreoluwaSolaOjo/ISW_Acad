@@ -47,3 +47,6 @@
     display: flex;
     justify-content: right;
 }
+.errors{
+  color: var(--red-light);
+}

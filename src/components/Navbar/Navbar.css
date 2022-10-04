@@ -14,6 +14,9 @@
     justify-content: space-between;
     width: 40%;
 }
+.links h3{
+    color: var(--ash-light);
+}
 .links h3:hover{
     color: var(--ash-dark);
 }
@@ -33,6 +36,7 @@ h3{
 }
 .applynow-div:hover > button{
     color: var(--ash-dark);
+    transform: scale(1,1.02)
 }
 .applynow-div:hover > #rocket-div{
 background-color: var(--red-light);

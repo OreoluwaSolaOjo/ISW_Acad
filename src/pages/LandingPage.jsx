@@ -20,6 +20,9 @@ import SimpleSlider from "../components/Slider/Slider";
 import Slider from "../components/Slider/Slider";
 import CustomizedAccordions from "../components/Accordion/Accordion";
 import { Link } from "react-router-dom";
+import ScrollTop from "../components/ScrollButton/Scrollbutton";
+import CountdownTimer from "../components/Countdown/Countdown";
+
 
 const LandingPage = () => {
     const displayYes = "flex";
@@ -33,8 +36,8 @@ const LandingPage = () => {
     <div className="landingpage-section1">
         <div className="landingpage-section1-left">
         <h1>
-            Become an <span>
-            Adept Software Engineer
+            Become <span>
+            Adept in Devops, Software Engineering or Quality Assurance
                 </span>  with 0-3 years experience 
         </h1>
         <p>
@@ -195,9 +198,15 @@ const LandingPage = () => {
 
     </div>
     {/* Landing Page Section 4 */}
-    <div className="landingpage-section4">
+    <div className="landingpage-section4-text">
     <h1>Countdown to the <span className="underline-effect">next training</span> </h1>
-  <h2>10-09-2022</h2>
+    </div>
+    <div className="landingpage-section4">
+  
+   
+  {/* time stamp to 4th October 2023 in milliseconds
+  https://www.epochconverter.com/ */}
+  <CountdownTimer countdownTimestampMs={1696422522000}/>
     </div>
     {/* LandingPage FAQ */}
   <div className="faqsdiv">
@@ -229,6 +238,7 @@ const LandingPage = () => {
     </div>
 </div>
     </div>
+    <ScrollTop />
     <Footer/>
     </>
      );

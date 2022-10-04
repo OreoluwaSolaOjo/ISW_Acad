@@ -1,0 +1,31 @@
+.countdown-timer {
+    width: 600px;
+    height: 100px;
+    border: 2px solid black;
+
+    font-family: "Oswald";
+    font-size: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue-light);
+    border-radius: 1.5rem;
+    border: 0px;
+}
+.countdown-timer:hover{
+    background-color: var(--red-light);
+    transform: scale(1.05);
+}
+.countdown-timer:focus{
+    background-color: var(--red-light);
+}
+.countdown-timer span {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: var(--ash-background);
+}
+
+.two-numbers {
+    width: 2ch;
+}

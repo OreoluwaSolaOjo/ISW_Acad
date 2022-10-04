@@ -67,8 +67,8 @@
 
 }
 .landingpage-section3-image img{
-    height: 400px;
-    width: 400px;
+    max-height: 500px;
+    max-width: 400px;
 }
 .landingpage-section3-heading-main{
     display: "flex";
@@ -113,6 +113,10 @@ border-radius: 25px;
 .landingpage-section3-heading-details-right{
     width: 50%;
   
+}
+.landingpage-section3-heading-details-right > div > h1{
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .landingpage-section3-heading-details-right-bottomdiv{
     display: flex;
@@ -160,14 +164,38 @@ border-radius: 25px;
     width: 50px;
     height: 50px;
 }
-.landingpage-section4{
+.landingpage-section4::before{
     height: 50vh;
-    background-color: var(--ash-background);
+    background-image: url("../assets/moroccan-flower.png");
+    background-size: cover;
+    opacity: 0.5;
     width: 100%;
     padding-top: 2%;
     margin-top: 5%;
- 
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 
+}
+.landingpage-section4{
+    height: 50vh;
+    background-color: var(--ash-background);
+    
+    background-size: cover;
+    width: 100%;
+    padding-top: 2%;
+    margin-top: 5%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+
+}
+
+.landingpage-section4-text h1{
+text-align: center;
+margin-top: 5%;
 }
 /* .landingpage-section4::after {    
     background-image: url("../assets/moroccan-flower.png");
