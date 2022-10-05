@@ -22,7 +22,7 @@ import CustomizedAccordions from "../components/Accordion/Accordion";
 import { Link } from "react-router-dom";
 import ScrollTop from "../components/ScrollButton/Scrollbutton";
 import CountdownTimer from "../components/Countdown/Countdown";
-
+import Typewriter from "../components/TypewriterEffect/TypewriterEffect";
 
 const LandingPage = () => {
     const displayYes = "flex";
@@ -35,14 +35,15 @@ const LandingPage = () => {
     <Navbar/>
     <div className="landingpage-section1">
         <div className="landingpage-section1-left">
-        <h1>
+        {/* <h1>
             Become <span>
             Adept in Devops, Software Engineering or Quality Assurance
                 </span>  with 0-3 years experience 
         </h1>
         <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias voluptas voluptatem consectetur mollitia, aspernatur aut distinctio exercitationem saepe, esse ipsam hic, velit nostrum? Quae dolorum iusto sint amet adipisci ea?
-        </p>
+        </p> */}
+    <Typewriter/>
         <div>
 
   
