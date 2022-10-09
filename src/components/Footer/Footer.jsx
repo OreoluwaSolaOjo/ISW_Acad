@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
         <div className="footer-main-contactus">
 <h2>Contact us</h2>
-<p>careers@interswitch.com</p>
+<p>caree</p>
         </div>
     </div>
     <div className="rightreserved">

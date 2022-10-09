@@ -6,19 +6,19 @@ import { useForm } from "react-hook-form";
 import "./Login.css"
 
 const Login = () => {
-    const { login, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
   
     return (
         <div className="registeration-div">
           <img src={InterswitchAcademyLogo} alt="" />
-            <form  submit={handleSubmit(onSubmit)}>
+            <form  onSubmit={handleSubmit(onSubmit)}>
             
                 {/* {errors.body && <p style={{ color: 'red' }}>Please check your last name</p>} */}
                 <label>Email:</label>
                 <input
                     type="text"
-                    {...login("email", {required: "Please fill in your email",
+                    {...register("email", {required: "Please fill in your email",
                     minLength: {
                   
                 }

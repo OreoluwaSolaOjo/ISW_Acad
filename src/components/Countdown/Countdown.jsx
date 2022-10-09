@@ -32,7 +32,7 @@ const CountdownTimer = ({countdownTimestampMs}) => {
             <span className="two-numbers">{remainingTime.minutes}</span>
             <span>minutes</span>
             <span className="two-numbers">{remainingTime.seconds}</span>
-            <span>seconds</span>
+            {/* <span>seconds</span> */}
         </div>
     );
 }

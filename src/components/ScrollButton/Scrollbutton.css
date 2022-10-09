@@ -8,3 +8,8 @@
 background-color: var(--red-light) !important;
 color: #ffff !important;
 }
+@media screen and (max-width: 30rem){
+    .scroll{
+      
+    }
+  }

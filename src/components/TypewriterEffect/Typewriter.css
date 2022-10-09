@@ -1,3 +1,10 @@
 .Typewriter__wrapper > h1{
 margin: 0px !important;
 }
+
+@media screen and (max-width: 65rem){
+.Typewriter__wrapper {
+text-align: center;    
+        }
+
+}

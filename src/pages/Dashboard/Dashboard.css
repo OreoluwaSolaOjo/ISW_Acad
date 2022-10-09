@@ -1,0 +1,93 @@
+.dashboardcontainer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+.dashboardsidebar{
+    width: 25%;
+    background-color: var(--blue-dark);
+    height: 100vh;
+    top: 0;
+    position: sticky;
+}
+.dashboardcontent{
+    width: 70%;
+}
+.profilepic-div{
+  display: flex;
+  justify-content: center;
+  padding-top: 15%;
+}
+.profilepic-div > img{
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--whiteshade);
+}
+.container-dashboardsidebarcontent{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  flex-direction: column;
+}
+.dashboardsidebarcontent{
+    display: flex;
+    align-items: center;
+    padding-left: 15%;
+}
+.dashboardsidebarcontent > img{
+    height: 1.5rem;
+    width: 1.5rem;
+    margin-right: 0.5rem;
+    color: var(--whiteshade);
+}
+.dashboardsidebarcontent > h3{
+    color: var(--whiteshade);
+}
+.dashboardrightbar{
+    background-color: var(--ash-background);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.dashboardrightbar-section1{
+    width: 100%;
+    background-color: var(--whiteshade);
+    min-height: 4rem;
+    padding-left: 10%;
+}
+.dashboardrightbar-section2{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.pendingexaminations-box{
+    min-height: 5rem;
+    background-color: var(--whiteshade);
+}
+.notifications-box{
+    min-height: 5rem;
+    background-color: var(--whiteshade);
+    margin-bottom: 1.2rem;
+}
+h3{
+    font-size: 1.2rem;
+    color: var(--ash-dark);
+  }
+  h4{
+    font-size: 1rem;
+    color: var(--ash-dark);
+  }
+
+  .examinationstab{
+    display: flex;
+    justify-content: center;
+align-items: center;
+    flex-direction: column;
+    min-height: 5rem;
+    background-color: var(--whiteshade);
+  }
+  .examinationstab > button{
+margin-top: 0;
+  }

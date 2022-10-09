@@ -69,4 +69,60 @@ background-color: var(--red-light);
     transform: scaleY(-1);
     
 }
+.menu-image{
+    display: none;
+}
+.menu-image img{
+    display: none;
+}
 
+@media screen and (max-width: 30rem){
+    .navbar-container{
+        display: flex;
+       flex-direction: column;
+  background-color: var(--whiteshade);
+  position: relative;
+  top: 0;
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+    }
+    .menu-image{
+        display: flex;
+        width: 100%;
+        margin-top: 5%;
+        margin-right: 10%;
+        justify-content: end;
+    }
+   
+    .menu-image img{
+        height: 35px;
+        width: 35px;
+    }
+    .image-div{
+        display: none;
+    }
+    .links{
+        width: 100%;
+       display: flex;
+       flex-direction: column;
+       background-color: var(--whiteshade);
+       
+    }
+    .links div:hover{
+       
+       background-color: var(--blue-light);
+
+    }
+    .links div h3{
+        text-align: center;
+        
+     }
+     .links div h3:hover{
+        text-align: center;
+        color: var(--whiteshade);
+     }
+    .applynow-div{
+        
+    }
+}
