@@ -6,7 +6,13 @@ import profile from "../../assets/profile.png";
 import dashboard from "../../assets/dashboard.png";
 import results from "../../assets/results.png";
 import Button from "../../components/Button/Button";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import InterswitchAcademyLogo from "../../assets/InterswitchAcademyLogo.png";
+
 const Dashboard = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
     const displayYes = "flex";
     const displayNo = "none"
     const [currentDisplayOne, setcurrentDisplayOne] = useState(displayYes)
@@ -60,6 +66,7 @@ const Dashboard = () => {
 <div className="dashboardrightbar" style={{ display: currentDisplayOne}}>
 <div className="dashboardrightbar-section1" >
     <h3>Dashboard</h3>
+    {/* <img src={InterswitchAcademyLogo} alt="" /> */}
 </div>
 <div className="dashboardrightbar-section2">
     <div className="pendingexaminations">
@@ -91,22 +98,74 @@ const Dashboard = () => {
 </div>
 <div className="dashboardrightbar-section2">
     <div className="pendingexaminations">
-    <h3>Pending Examinations</h3>
-    <div className="pendingexaminations-box">
-
-    </div>
-    <div className="notifications">
-        <h3>Notifications</h3>
-        <div className="notifications-box">
-
-        </div>
-        <div className="notifications-box">
+    <h3>Edit Profile</h3>
+    <div className="editprofile-box">
+    <form onSubmit={handleSubmit(onSubmit)}>
+                <label>First Name:</label>
+                <input
+                    type="text"
+                    {...register("firstName", {required: "Please fill in your first name",
+                    minLength: {
+                    value: 4,
+                    message: "The minimum first name length is 4" 
+                }
+                })}
+                   
+                />
+                <p className="errors">{errors.firstName?.message}</p>
+                <label>Last Name:</label>
+                <input
+                    type="text"
+                    {...register("lastName",{required: "Please fill in your Last name",
+                    minLength: {
+                    value: 4,
+                    message: "The minimum first name length is 4" 
+                }
+                })}
+                
+                  
+                />
+               <p className="errors">{errors.lastName?.message}</p>
+           
+                {/* {errors.body && <p style={{ color: 'red' }}>Please check your last name</p>} */}
+                <label>Email:</label>
+                <input
+                    type="text"
+                    {...register("email" , {required: "Please fill in your Email",
+                    minLength: {
+                    value: 4,
+                    message: "The minimum first name length is 4" 
+                }
+                }
+                )}
+                  
+                
+                />
+                <p className="errors">{errors.email?.message}</p>
+                
             
-        </div>
-        <div className="notifications-box">
+<label>Training Track:</label>
+                <input
+                    type="training_track"
+                    {...register("training_track" , {required: "Please fill in your Password",
+                    minLength: {
+                    value: 4,
+                    message: "The minimum first name length is 8" 
+                }
+                })}
+                 
+                   
+                />
+  
+  <div className="Button-div-update-profile">
+  <Button value='Update Profile' styleClass='no-border-button' type="submit"></Button>
+  </div>
+                
             
-        </div>
+
+            </form>
     </div>
+  
     </div>
    
     
@@ -137,22 +196,12 @@ const Dashboard = () => {
 </div>
 <div className="dashboardrightbar-section2">
     <div className="pendingexaminations">
-    <h3>Pending Examinations</h3>
+    <h3>Examination Results</h3>
     <div className="pendingexaminations-box">
-
+<div><h4>You have no results yet</h4>
     </div>
-    <div className="notifications">
-        <h3>Notifications</h3>
-        <div className="notifications-box">
-
-        </div>
-        <div className="notifications-box">
-            
-        </div>
-        <div className="notifications-box">
-            
-        </div>
     </div>
+   
     </div>
    
     

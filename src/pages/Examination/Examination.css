@@ -1,0 +1,57 @@
+.exam-container{
+    width: 100%;
+}
+.exam-section1{
+    width: 100%;
+    background-color: var(--ash-background);
+    max-height: 4rem;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.exam-section1-links{
+    width: 20%;
+    max-height: 4rem;
+    background-color: var(--blue-light);
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+
+}
+.exam-section1-links img{
+   width: 25px;
+   height: 25px;
+   margin: 10%;
+}
+.exam-section1-links div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+ }
+ #exam-section1-prev-button:hover{
+   background-color: var(--red-light);
+   border-top-left-radius: 25px;
+   border-bottom-left-radius: 25px;
+ }
+
+ #exam-section1-next-button:hover{
+    background-color: var(--red-light);
+   border-top-right-radius: 25px;
+   border-bottom-right-radius: 25px;
+ }
+ .exam-section1-links div p{
+    color: var(--whiteshade);
+ }
+.exam-section1-heading{
+    width: 20%;
+}
+.exam-section1-heading h3{
+    white-space: nowrap;
+}
+#exam-section1-next-button p{
+    margin-left: 10%;
+ }
