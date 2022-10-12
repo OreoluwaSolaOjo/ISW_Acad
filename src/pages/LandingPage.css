@@ -34,7 +34,7 @@
 .landingpage-section2{
   text-align: center;
     margin-top: 5%;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 .landingpage-section2 h1{
     text-align: center;
@@ -48,7 +48,7 @@
 }
 .landingpage-section2-carddiv-row{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-bottom: 10%;
 }
 
@@ -316,6 +316,18 @@ text-align: center;
    
        
     }
+    .landingpage-section3-heading-details{
+        display: flex;
+       margin: auto;
+     flex-direction: column;
+    }
+    .landingpage-section2-carddiv-row{
+        display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-content: center;
+       margin-bottom: 0;
+    }
     .landingpage-section1-right{
         display: flex;
         align-content: center;
@@ -330,9 +342,27 @@ text-align: center;
         
         
     }
+    .landingpage-section3{
+        display: flex;
+        flex-direction: column;
+    
+    }
     .landingpage-section3-image img{
         max-height: 400px;
         max-width: 300px;
+      
+    }
+    .landingpage-section3-image{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .landingpage-section3-heading-details-right{
+        width: 80%;
+      
+    }
+    .landingpage-section3-heading-details-right > div > h1{
+        text-align: center;
     }
 }
 

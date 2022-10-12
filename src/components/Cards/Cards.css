@@ -64,3 +64,11 @@ display: none;
    width: 100%;
    background-repeat: no-repeat, no-repeat;
 }
+@media screen and (max-width: 30rem){
+    .cardOne{
+        width: 80%;
+       margin: auto;
+       margin-bottom: 5%;
+    }
+
+}

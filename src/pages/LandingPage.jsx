@@ -19,12 +19,16 @@ import Footer from "../components/Footer/Footer";
 import SimpleSlider from "../components/Slider/Slider";
 import Slider from "../components/Slider/Slider";
 import CustomizedAccordions from "../components/Accordion/Accordion";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import ScrollTop from "../components/ScrollButton/Scrollbutton";
 import CountdownTimer from "../components/Countdown/Countdown";
 import Typewriter from "../components/TypewriterEffect/TypewriterEffect";
 
 const LandingPage = () => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate('/registeration')
+    }
     const displayYes = "flex";
     const displayNo = "none"
     const [currentDisplayOne, setcurrentDisplayOne] = useState(displayYes)
@@ -133,7 +137,7 @@ const LandingPage = () => {
                         </h3>  
                 </div>
     </div>
-    <div className="landingpage-section3-heading-details"  style={{ display: currentDisplayOne}}>
+    <div className="landingpage-section3-heading-details"  style={{ display: currentDisplayOne, justifyContent: "center",alignItems: "center", alignContent: "center"}}>
 
     
         <div className="landingpage-section3-image" >
@@ -153,7 +157,7 @@ const LandingPage = () => {
             </div>
         </div>
     </div>
-    <div className="landingpage-section3-heading-details" style={{ display: currentDisplayTwo}}>
+    <div className="landingpage-section3-heading-details" style={{ display: currentDisplayTwo, justifyContent: "center",alignItems: "center", alignContent: "center"}}>
 
     
         <div className="landingpage-section3-image">
@@ -173,7 +177,7 @@ const LandingPage = () => {
             </div>
         </div>
     </div>
-    <div className="landingpage-section3-heading-details" style={{ display: currentDisplayThree}}>
+    <div className="landingpage-section3-heading-details" style={{ display: currentDisplayThree, justifyContent: "center",alignItems: "center", alignContent: "center"}}>
 
     
         <div className="landingpage-section3-image">
@@ -235,7 +239,7 @@ const LandingPage = () => {
    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel illum ipsum, quidem facilis commodi deserunt laboriosam fugit, quia minus, dicta nostrum. Eos veniam voluptatem esse blanditiis, tempora possimus quas libero quia impedit nulla eaque, officia, suscipit sapiente non sit voluptate! Fugit, eius veniam a maxime alias ullam deleniti consectetur in.
 </p>
 <div className="landingpage-section6-maindiv-button">
-<Button styleClass='blue-button' value='Apply Now' />
+<Button styleClass='blue-button' value='Apply Now' onClick={handleClick}/>
     </div>
 </div>
     </div>

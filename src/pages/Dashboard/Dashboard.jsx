@@ -9,8 +9,13 @@ import Button from "../../components/Button/Button";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import InterswitchAcademyLogo from "../../assets/InterswitchAcademyLogo.png";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate('/examination')
+    }
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     const displayYes = "flex";
@@ -181,7 +186,10 @@ const Dashboard = () => {
     <h3>Pending Examinations</h3>
     <div className="examinationstab">
 <h4>You have a pending examination</h4>
-<Button styleClass="blue-button" value="Take Now" />
+
+<Button styleClass="blue-button" value="Take Now" onClick={handleClick}/>
+
+
     </div>
     
     </div>

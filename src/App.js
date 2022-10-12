@@ -8,6 +8,11 @@ import Reset_Password from "./pages/Reset_Password/Reset_Password";
 import Reset_Password_Success from "./pages/Reset_Password/Reset_Password_Success";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Examination from "./pages/Examination/Examination";
+
+
+
+// Add loader spinner from link below
+// https://mhnpd.github.io/react-loader-spinner/docs/components/ball-traingle
 const App = () => {
 
   return (

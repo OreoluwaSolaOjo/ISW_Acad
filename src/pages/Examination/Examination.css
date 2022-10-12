@@ -1,9 +1,11 @@
 .exam-container{
     width: 100%;
+    height: 150vh;
+    background-color: var(--ash-background);
 }
 .exam-section1{
     width: 100%;
-    background-color: var(--ash-background);
+    background-color: var(--whiteshade);
     max-height: 4rem;
     padding-top: 1%;
     padding-bottom: 1%;
@@ -55,3 +57,154 @@
 #exam-section1-next-button p{
     margin-left: 10%;
  }
+ .exam-section1-logo{
+    width: 10%;
+ }
+
+ /* Progress bar */
+ .exam-section1-progressbar{
+    width: 20%;
+    position: relative;
+    overflow-x:hidden;
+ }
+ .exam-section1-logo img{
+    width: 100%;
+    max-height: 50px;
+ }
+
+ .exam-section1-progressbar > p {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ash-dark);
+    margin: 0;
+}
+ 
+.exam-section1-progressbar:before {
+    width: 100%;
+    height: 10px;
+    content: "";
+    display: block;
+    position: absolute;
+    background: var(--ash-dark);
+    bottom: 0;
+}
+ 
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background:var(--red-light);
+    display: block;
+    position: relative;
+}
+ 
+.skill-bar span {
+    position: absolute;
+
+    top: -30px;
+    padding: 0;
+    font-size: 18px;
+    padding: 3px 0;
+    font-weight: 500;
+}
+ 
+.skill-bar {
+    position: relative;
+}
+ 
+.skill1 .skill-count1 {
+    right: 0;
+}
+ 
+.skill1 {
+    width: 95%;
+}
+.exam-container-mainbox{
+    max-width: 30rem;
+    background-color: var(--whiteshade);
+    max-height: 35rem;
+    margin: auto;
+    border-radius: 1.5rem;
+    padding: 5%;
+    margin-top: 5%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.exam-container-mainbox div{
+    display: flex;
+    align-items: center;
+}
+
+
+/* MAIN */
+/* =============================================== */
+.rad-label {
+    display: flex;
+    align-items: center;
+  
+    border-radius: 100px;
+    padding: 14px 16px;
+    margin: 10px 0;
+  
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+  .rad-label:hover,
+  .rad-label:focus-within {
+    background: hsla(0, 0%, 80%, .14);
+  }
+  
+  .rad-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    z-index: -1;
+  }
+  
+  .rad-design {
+    width: 22px;
+    height: 22px;
+    border-radius: 100px;
+  
+    background-color: var(--red-light);
+    position: relative;
+  }
+  
+  .rad-design::before {
+    content: '';
+  
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+  
+    background: hsl(0, 0%, 90%);
+    transform: scale(1.1);
+    transition: .3s;
+  }
+  
+  .rad-input:checked+.rad-design::before {
+    transform: scale(0);
+  }
+  
+  .rad-text {
+    color: var(--ash-dark);
+    margin-left: 14px;
+    letter-spacing: 3px;
+    font-size: 18px;
+    font-weight: 900;
+  
+    transition: .3s;
+  }
+  
+  .rad-input:checked~.rad-text {
+    color: var(--ash-light);
+  }
+
+  /* Buttons */
+  .exam-container-mainbox-buttons{
+    display: flex;
+    justify-content: flex-end;
+  }
