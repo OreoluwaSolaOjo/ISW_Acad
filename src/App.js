@@ -16,9 +16,7 @@ import Examination from "./pages/Examination/Examination";
 const App = () => {
 
   return (
-    // <div>
-    //   <Home />
-    // </div>
+  
 
     <Router>
 

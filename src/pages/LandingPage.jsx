@@ -217,7 +217,7 @@ const LandingPage = () => {
   <div className="faqsdiv">
 
  
-        <div className="faqsdivh1">
+        <div className="faqsdivh1" >
         <h1> Frequently Asked<span className="underline-effect"> Questions</span> </h1>
         </div>
         <div className="FAQs">

@@ -3,6 +3,11 @@
     justify-content: space-around;
     align-items: center;
   width: 100%;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50;
+  background-color: var(--whiteshade);
+
 }
 .navbar-container img{
     height: 65%;

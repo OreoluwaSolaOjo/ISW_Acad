@@ -30,7 +30,7 @@ const toggleMenuClicked = () => {
         <div><h3>
     Home
         </h3></div>
-    <div><h3>About Us</h3></div>
+    <div href="#faq"><h3>About Us</h3></div>
     <div><h3>
     FAQs
         </h3></div>
