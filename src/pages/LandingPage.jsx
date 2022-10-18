@@ -24,7 +24,11 @@ import ScrollTop from "../components/ScrollButton/Scrollbutton";
 import CountdownTimer from "../components/Countdown/Countdown";
 import Typewriter from "../components/TypewriterEffect/TypewriterEffect";
 
+
+
+
 const LandingPage = () => {
+    
     const navigate = useNavigate();
     const handleClick = () => {
         navigate('/registeration')
@@ -39,15 +43,15 @@ const LandingPage = () => {
     <Navbar/>
     <div className="landingpage-section1">
         <div className="landingpage-section1-left">
-        {/* <h1>
+        <h1>
             Become <span>
             Adept in Devops, Software Engineering or Quality Assurance
                 </span>  with 0-3 years experience 
         </h1>
         <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias voluptas voluptatem consectetur mollitia, aspernatur aut distinctio exercitationem saepe, esse ipsam hic, velit nostrum? Quae dolorum iusto sint amet adipisci ea?
-        </p> */}
-    <Typewriter/>
+        </p>
+    {/* <Typewriter/> */}
         <div>
 
   
@@ -137,7 +141,7 @@ const LandingPage = () => {
                         </h3>  
                 </div>
     </div>
-    <div className="landingpage-section3-heading-details"  style={{ display: currentDisplayOne, justifyContent: "center",alignItems: "center", alignContent: "center"}}>
+    <div className="landingpage-section3-heading-details"  style={{ display: currentDisplayOne, justifyContent: "space-evenly",alignItems: "center", alignContent: "center"}}>
 
     
         <div className="landingpage-section3-image" >
@@ -157,7 +161,7 @@ const LandingPage = () => {
             </div>
         </div>
     </div>
-    <div className="landingpage-section3-heading-details" style={{ display: currentDisplayTwo, justifyContent: "center",alignItems: "center", alignContent: "center"}}>
+    <div className="landingpage-section3-heading-details" style={{ display: currentDisplayTwo, justifyContent: "space-evenly",alignItems: "center", alignContent: "center"}}>
 
     
         <div className="landingpage-section3-image">
@@ -177,7 +181,7 @@ const LandingPage = () => {
             </div>
         </div>
     </div>
-    <div className="landingpage-section3-heading-details" style={{ display: currentDisplayThree, justifyContent: "center",alignItems: "center", alignContent: "center"}}>
+    <div className="landingpage-section3-heading-details" style={{ display: currentDisplayThree, justifyContent: "space-evenly",alignItems: "center", alignContent: "center"}}>
 
     
         <div className="landingpage-section3-image">

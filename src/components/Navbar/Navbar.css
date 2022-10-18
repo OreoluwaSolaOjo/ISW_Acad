@@ -15,9 +15,19 @@
     max-height: 700px;
 }
 .links{
+    display: none;
+  
+}
+.desktop-links{
     display: flex;
     justify-content: space-between;
     width: 40%;
+}
+.desktop-links h3{
+    color: var(--ash-light);
+}
+.desktop-links h3:hover{
+    color: var(--ash-dark);
 }
 .links h3{
     color: var(--ash-light);
@@ -35,9 +45,35 @@ h3{
     color: var(--ash-light);
     font-size: 1rem;
 }
-.applynow-div{
+.desktop-applynow-div{
     display: flex;
     align-items: center;
+}
+.desktop-applynow-div{
+    display: flex;
+    align-items: center;
+}
+.desktop-applynow-div:hover > button{
+    color: var(--ash-dark);
+    transform: scale(1,1.02)
+}
+.desktop-applynow-div:hover > #desktop-rocket-div{
+background-color: var(--red-light);
+
+}
+.desktop-applynow-div:hover > #desktop-rocket-div > img{
+    transform: scaleY(1);
+    
+    }
+.desktop-applynow-div button{
+    background-color: var(--whiteshade);
+    border: none;
+    color: var(--ash-light);
+    font-size: 1rem;
+    font-weight: 500;
+}
+.applynow-div{
+    display: none;
 }
 .applynow-div:hover > button{
     color: var(--ash-dark);
@@ -57,6 +93,29 @@ background-color: var(--red-light);
     color: var(--ash-light);
     font-size: 1rem;
     font-weight: 500;
+}
+.desktop-applynow-div button{
+    background-color: var(--whiteshade);
+    border: none;
+    color: var(--ash-light);
+    font-size: 1rem;
+    font-weight: 500;
+}
+#desktop-rocket-div{
+    height: 35px;
+    width: 35px;
+    background-color: var(--blue-light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#desktop-rocket-div img{
+    height: 15px;
+    width: 15px;
+    color: var(--whiteshade);
+    transform: scaleY(-1);
+    
 }
 #rocket-div{
     height: 35px;
@@ -91,6 +150,7 @@ background-color: var(--red-light);
   width: 100%;
   padding-top: 5%;
   padding-bottom: 5%;
+  z-index: 0;
     }
     .menu-image{
         display: flex;
@@ -101,11 +161,12 @@ background-color: var(--red-light);
     }
    
     .menu-image img{
-        height: 35px;
-        width: 35px;
+        display: flex;
+        height: 25px;
+        width: 25px;
     }
     .image-div{
-        display: none;
+    display: none;
     }
     .links{
         width: 100%;
@@ -128,6 +189,6 @@ background-color: var(--red-light);
         color: var(--whiteshade);
      }
     .applynow-div{
-        
+        display: flex;
     }
 }
