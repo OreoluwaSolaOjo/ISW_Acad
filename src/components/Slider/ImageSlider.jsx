@@ -1,5 +1,6 @@
 import { useState } from "react";
 import star from "../../assets/star.png";
+import './Slider.css';
 const slideStyles = {
   width: "30%",
   height: "80%",
@@ -101,13 +102,13 @@ const ImageSlider = ({ slides }) => {
           ❱
         </div>
       </div>
-      <div style={slideStylesWidthBackgroundd}>
+      <div style={slideStylesWidthBackgroundd} className="slideStyleswidthbackgroundd-resp">
 
-      <div style={slideStylesWidthBackground}>
+      <div style={slideStylesWidthBackground}  className="slideStyleswidthbackground-resp">
 
 
       </div>
-      <div style={slideStylesText}>
+      <div style={slideStylesText} className="slidesStylesText-resp">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis iure error optio ullam blanditiis harum, reprehenderit voluptatum. Unde quos aspernatur ratione! Incidunt quo itaque impedit porro placeat debitis inventore nulla?</p>
         <h3 id="hthree">- {slides[currentIndex].name}</h3>
         <div className="stylesRatings">

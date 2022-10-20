@@ -47,3 +47,20 @@
     border: none;
     transform: scale(1.03,1.1)
 }
+
+@media screen and (max-width: 30rem){
+
+    .blue-button{
+     
+        padding: 5% 10% 5% 10%;
+    
+    }
+ 
+    .red-button{
+        padding: 5% 10% 5% 10%;
+    }
+  
+    .no-border-button{
+        padding: 5% 10% 5% 10%;
+    }
+}

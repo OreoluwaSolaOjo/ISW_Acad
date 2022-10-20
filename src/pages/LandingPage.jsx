@@ -39,8 +39,11 @@ const LandingPage = () => {
     const [currentDisplayTwo, setcurrentDisplayTwo] = useState(displayNo)
     const [currentDisplayThree, setcurrentDisplayThree] = useState(displayNo)
     return ( 
-    <>
+        <div className="landingpage-container">
+ 
     <Navbar/>
+
+    
     <div className="landingpage-section1">
         <div className="landingpage-section1-left">
         <h1>
@@ -49,7 +52,7 @@ const LandingPage = () => {
                 </span>  with 0-3 years experience 
         </h1>
         <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias voluptas voluptatem consectetur mollitia, aspernatur aut distinctio exercitationem saepe, esse ipsam hic, velit nostrum? Quae dolorum iusto sint amet adipisci ea?
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique fugit consequatur libero voluptates officia aspernatur.
         </p>
     {/* <Typewriter/> */}
         <div>
@@ -249,7 +252,7 @@ const LandingPage = () => {
     </div>
     <ScrollTop />
     <Footer/>
-    </>
+    </div>
      );
 }
  

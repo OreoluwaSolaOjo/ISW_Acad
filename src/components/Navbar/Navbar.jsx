@@ -17,7 +17,7 @@ const Navbar = () => {
 
  
   return (
-    <div className='navbar-container'>
+    <div className={mNavBtn ? 'navbar-container navbar-container-height' : 'navbar-container'}>
       {
         mNavBtn ? <div onClick={toggle} className='menu-image mobile' ><img src={x} alt="" /></div> :
          <div onClick={toggle} className='menu-image mobile' ><img src={menu} alt="" /></div> 
@@ -39,9 +39,7 @@ const Navbar = () => {
             <div><h3>
               FAQs
             </h3></div>
-
-          </div>
-          <Link to="/registeration">
+            <Link to="/registeration">
             <div className='applynow-div mobile'  >
               <button>
                 Apply Now
@@ -51,6 +49,8 @@ const Navbar = () => {
               </div>
             </div>
           </Link>
+          </div>
+        
         </>
       }
                <div className='desktop-links desktop' >
@@ -61,9 +61,7 @@ const Navbar = () => {
             <div><h3>
               FAQs
             </h3></div>
-
-          </div>
-          <Link to="/registeration">
+            <Link to="/registeration">
             <div className='desktop-applynow-div desktop' >
               <button>
                 Apply Now
@@ -73,6 +71,8 @@ const Navbar = () => {
               </div>
             </div>
           </Link>
+          </div>
+        
     </div>
   );
 }
