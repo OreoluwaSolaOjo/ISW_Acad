@@ -1,15 +1,59 @@
 import { useState } from "react";
 import InterswitchAcademyLogo from "../../assets/InterswitchAcademyLogo.png"
-import { Link, useNavigate } from "react-router-dom";
+import { json, Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import { useForm } from "react-hook-form";
-import "./Login.css"
+import "./Login.css";
+import InterswitchAcademyLogoAnimation from "../../assets/InterswitchAcademyLogoAnimation.mp4";
+import { BallTriangle } from "react-loader-spinner";
+import { useContext } from "react";
+import { UserAuthContext } from "../../context/UserAuthContext";
+import { useEffect } from "react";
+import useStateContext, { getFreshContext } from "../../context/useStateContext";
+
 
 const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    // const onSubmit = data => console.log(data);
+    const {val, setVal } = useContext(UserAuthContext);
+    const navigate = useNavigate();
+    const [loading, setLoading] =useState(false);
+    const url = "https://localhost:7051/api/v1/auth/login"
+   
+    async function onSubmit(data, e) {
+        sessionStorage.removeItem('context')
+ 
+        console.log(data)
+        setLoading(true)
+       fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        // Adding body or contents to send
+        body: JSON.stringify(data),
+        
+       }).then(response => response.json())
+       .then(json => {console.log(json)
+       setVal(json)
+
+    })
+       .then(() =>{
+        setLoading(false)
+        navigate(`/`)
+        console.log(val)
+    })
+    }
+    return (<>
+   
+{loading ? 
+        <div className="videoClass">
+
   
-    return (
+        <video type="video/mp4" src={InterswitchAcademyLogoAnimation} loop muted autoPlay={"autoplay"}  />
+    
+    </div>
+      :
         <div className="registeration-div">
           <img src={InterswitchAcademyLogo} alt="" />
             <form  onSubmit={handleSubmit(onSubmit)}>
@@ -18,7 +62,7 @@ const Login = () => {
                 <label>Email:</label>
                 <input
                     type="text"
-                    {...register("email", {required: "Please fill in your email",
+                    {...register("Email", {required: "Please fill in your email",
                     minLength: {
                   
                 }
@@ -28,7 +72,11 @@ const Login = () => {
                 <label>Password:</label>
                 <input
                     type="password"
-
+                    {...register("Password", {required: "Please fill in your email",
+                    minLength: {
+                  
+                }
+                })}
                    
                 />
 
@@ -40,7 +88,8 @@ const Login = () => {
                 </p>
 
             </form>
-        </div>
+        </div>}
+        </>
     );
 }
 

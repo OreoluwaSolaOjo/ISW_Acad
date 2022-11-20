@@ -1,16 +1,17 @@
+
 .countdown-timer {
-    width: 50%;
+    position: absolute;
+    width: 55%;
     height: 100px;
-
-  
+ opacity: 1 ;
     font-size: 1.5rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--blue-light);
     border-radius: 1.5rem;
     border: 0px;
+    
 }
 .countdown-timer:hover{
     background-color: var(--red-light);
@@ -26,7 +27,7 @@
 
 .two-numbers {
     width: 25%;
-    margin-left: 2%;
+    margin-left: 5%;
     white-space: nowrap
 }
 

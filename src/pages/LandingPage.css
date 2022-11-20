@@ -1,3 +1,15 @@
+.fadeIn {
+    opacity: 0;
+   transform: translate3d(-50px, 0, 0);
+  
+    cursor: pointer;
+    transition: 0.25s all ease-in-out;
+  }
+  
+  .fadeIn:hover {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 .landingpage-container{
     display: flex;
     width: 100%;
@@ -14,7 +26,7 @@
     align-items: center;
     width: 100%;
     
-    padding: 2% 4% 2% 4%;
+    padding: 2% 0 2% 0;
   
     /* position: relative; */
     /* position: sticky; */
@@ -24,6 +36,7 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    padding-left: 5%;
 }
 .landingpage-section1-left span{
     color: var(--blue-light);
@@ -36,10 +49,9 @@
     padding: 2% 0 2% 0;
 }
 .landingpage-section1-right img{
-    max-height: 450px;
-    max-width: 450px;
-    
-    
+    /* max-height: 450px;
+    max-width: 450px;  */
+    max-width: 76%;
 }
 .landingpage-section1-left > div > Button{
     margin-left: 0px !important;
@@ -92,9 +104,9 @@
     align-content: center;
     background-color: var(--blue-light);
     color: var(--whiteshade);
-    border: 5px solid var(--whiteshade);
+    border: 0.15rem solid var(--whiteshade);
     margin-bottom: 5%;
-    border-radius: 25px;
+
 }
 .landingpage-section3-heading-main > h3{
     text-align: center;
@@ -178,27 +190,16 @@ border-radius: 25px;
     width: 50px;
     height: 50px;
 }
-.landingpage-section4::before{
-    height: 50vh;
-    background-image: url("../assets/moroccan-flower.png");
-    background-size: cover;
-    opacity: 0.5;
-    width: 100%;
-    padding-top: 2%;
-    margin-top: 5%;
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
 
-}
+
 .landingpage-section4{
-    height: 50vh;
-    background-color: var(--ash-background);
-    
+    position: relative;
+    height: 60vh;
+    /* background-color: var(--ash-background); */
+    background-image: url("../assets/code.jpg");
     background-size: cover;
     width: 100%;
-    padding-top: 2%;
+   
     margin-top: 5%;
  display: flex;
  flex-direction: column;
@@ -206,37 +207,38 @@ border-radius: 25px;
  align-items: center;
 
 }
+
+.landingpage-section4-overlay{
+    position: absolute;
+    background-color:     rgba(0, 66, 95, 0.9);
+    height: 100%;
+    width: 100%;
+ 
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
 
 .landingpage-section4-text h1{
 text-align: center;
 margin-top: 5%;
 }
-/* .landingpage-section4::after {    
-    background-image: url("../assets/moroccan-flower.png");
-      background-size: cover;
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      bottom: 0px;
-      left: 0px;
-      opacity: 0.75;
-} */
-.landingpage-section4 > h1{
+
+.landingpage-section4-overlay > h1{
     text-align: center;
 }
-.landingpage-section4 > h2{
+.landingpage-section4-overlay > h1{
     text-align: center;
-    font-size: 3rem;
 }
+
 
 /* Section 5 */
 .landingpage-section5 > h1 {
     text-align: center;
 }
-.landingpage-section5{
 
-  
-}
 /* Section 6 */
 .landingpage-section6 {
 display: flex;
@@ -295,14 +297,7 @@ text-align: center;
     text-align: center;
     margin: auto;
 }
-/* .FAQs {
-    position: relative; 
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
+
 
 .FAQs::before {    
     background-image: url("../assets/moroccan-flower.png");
@@ -408,5 +403,15 @@ text-align: center;
 
 
 @media screen and (max-width: 65rem){
- 
+    /* .landingpage-section1-right{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        width: 50%;
+        padding: 2% 0 2% 0;
+    }
+    .landingpage-section1-right img{
+        max-height: 450px;
+        max-width: 450px; 
+    } */
 }

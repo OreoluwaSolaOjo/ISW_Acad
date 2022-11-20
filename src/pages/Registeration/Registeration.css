@@ -50,6 +50,13 @@
 .errors{
   color: var(--red-light);
 }
+.wrapperClassName{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 @media screen and (max-width: 30rem){
   .registeration-div {

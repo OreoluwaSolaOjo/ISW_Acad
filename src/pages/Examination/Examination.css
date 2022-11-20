@@ -110,14 +110,11 @@
 .skill-bar {
     position: relative;
 }
- 
-.skill1 .skill-count1 {
+ .skill-count1 {
     right: 0;
 }
  
-.skill1 {
-    width: 95%;
-}
+
 .exam-container-mainbox{
     max-width: 30rem;
     background-color: var(--whiteshade);
@@ -132,14 +129,18 @@
     display: flex;
     align-items: center;
 }
-
+.exam-container-mainbox-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 /* MAIN */
 /* =============================================== */
 .rad-label {
     display: flex;
-    align-items: center;
-  
+    align-items: flex-start;
+  width: 100%;
     border-radius: 100px;
     padding: 14px 16px;
     margin: 10px 0;
@@ -150,7 +151,7 @@
   
   .rad-label:hover,
   .rad-label:focus-within {
-    background: hsla(0, 0%, 80%, .14);
+    background: rgba(42, 42, 42, 0.037);
   }
   
   .rad-input {
@@ -167,7 +168,7 @@
     width: 22px;
     height: 22px;
     border-radius: 100px;
-  
+
     background-color: var(--red-light);
     position: relative;
   }
@@ -198,7 +199,12 @@
   
     transition: .3s;
   }
-  
+  .optionsClass{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+  }
+ 
   .rad-input:checked~.rad-text {
     color: var(--ash-light);
   }

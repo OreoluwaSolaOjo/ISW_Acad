@@ -162,6 +162,7 @@ min-height: 10vh;
     }
     .navbar-container-height{
         min-height: 40vh;
+       
     }
     .menu-image{
         display: flex;
@@ -172,6 +173,7 @@ min-height: 10vh;
         align-content: center;
         align-self: center;
         align-items: center;
+        transition: .5s;
     }
    
     .menu-image img{

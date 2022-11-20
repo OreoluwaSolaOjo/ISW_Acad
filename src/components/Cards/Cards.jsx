@@ -2,9 +2,12 @@ import React from 'react';
 import './Cards.css';
 
 
+
 const Cards = ({ cardClass, mainText, image, heading}) => {
     return (  
+        
     <div className={`${cardClass}`} >
+  
         <div className='cardone-imagediv'>
             <img src={image} alt={`${image}`} />
         </div>
@@ -17,7 +20,9 @@ const Cards = ({ cardClass, mainText, image, heading}) => {
         <div className="cardone-secondimage">
             {/* <img src={imagetwo} alt={`${imagetwo}`} /> */}
         </div>
+      
     </div>
+
     );
 }
  
