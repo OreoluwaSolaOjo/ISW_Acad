@@ -2,7 +2,7 @@ import React from "react";
 import "./Examination.css";
 import next from "../../assets/next-white.png";
 import previous from "../../assets/previous-white.png";
-import ISWAcademyLogo from '../../assets/InterswitchAcademyLogo.png';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              import ISWAcademyLogo from '../../assets/InterswitchAcademyLogo.png';                                               
 import Button from "../../components/Button/Button";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -51,8 +51,13 @@ const Examination = () => {
     else{
     navigate('/result')}
   }
-
+  const handlePrevQuestion =()=>{
+    if (qnsIndex > 0 && qnsIndex <=4){
+      setqnsIndex(qnsIndex - 1)}
+  }
+  const[isActive, setIsActive] = useState(false)
   const updateAnswer = (qnsId, optionId) => {
+    setIsActive(true)
     // first destructure array to change context since it is immutable
     const temp = [...context.selectedOptions]
 
@@ -117,16 +122,16 @@ const Examination = () => {
 
           <p>Exam Progress</p>
           <div className="skill-bar" style={skill1} >
-            <span className="skill-count1">{(qnsIndex + 1) * 100 / 5}</span>
+            <span className="skill-count1"></span>
           </div>
 
         </div>
-
-      </div>
+    
+    </div>
       {qns.length != 0 ?
         <div className="exam-container-mainbox">
           <div className="exam-container-mainbox-title">
-            <h3>{'Question ' + (qnsIndex + 1) + 'of 5 '}</h3>
+            <h3>{'Question ' + (qnsIndex + 1) + ' of 5 '}</h3>
             <h3>{getFormatedTime(timeTaken)}</h3>
 
           </div>
@@ -136,37 +141,22 @@ const Examination = () => {
             {qns[qnsIndex].options.map((item, index) => {
               return (
 
-                <label key={index} className="rad-label" onClick={() => updateAnswer(
+                <label key={index}  className="rad-label" onClick={() => {updateAnswer(
                   qns[qnsIndex].questionsBankId, index)
-                }>
+                  
+                }}>
                   {/* <input type="radio" className="rad-input" name="rad" /> */}
                   <div className="rad-design"></div>
                   <div className="rad-text">{item}</div>
                 </label>)
             })}
           </div>
-          {/* 
-
-  <label className="rad-label">
-    <input type="radio" className="rad-input" name="rad" />
-    <div className="rad-design"></div>
-    <div className="rad-text">Hi</div>
-  </label>
-  <label className="rad-label">
-    <input type="radio" className="rad-input" name="rad" />
-    <div className="rad-design"></div>
-    <div className="rad-text">Lorem ipsum dolor sit amet.</div>
-  </label>
-  <label className="rad-label">
-    <input type="radio" className="rad-input" name="rad" />
-    <div className="rad-design"></div>
-    <div className="rad-text">Air</div>
-  </label> */}
+    
           <div className="exam-container-mainbox-buttons">
 
 
 
-            <Button styleClass='no-border-button' value='Previous' />
+            <Button styleClass='no-border-button' value='Previous' onClick={handlePrevQuestion}/>
             <Button styleClass='blue-button' value={ qnsIndex<4 ? 'Next' : 'Submit'} onClick={handleNextQuestion} />
 
           </div>

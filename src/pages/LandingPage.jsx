@@ -21,11 +21,29 @@ import ScrollTop from "../components/ScrollButton/Scrollbutton";
 import CountdownTimer from "../components/Countdown/Countdown";
 import { useContext } from "react";
 import { UserAuthContext } from "../context/UserAuthContext";
+import axios from "axios";
+import { GetUserContext } from "../context/getUsercontext";
+import { useEffect } from "react";
 
 
 const LandingPage = () => {
     const navigate = useNavigate();
     const{val,setVal} =useContext(UserAuthContext)
+    const { user, setUser } = useContext(GetUserContext)
+    const urlone = `https://localhost:7051/api/v1/users/get-user/${val.id}`
+    // const urltwo = `https://localhost:7051/api/v1/users/get-user/${id}`
+    // useEffect(() => {
+    //     axios.get(urlone)
+    //         .then((response) => {
+    //             console.log(response)
+    //             setUser(response.data.user)
+    //         }).then(() => { console.log(user) })
+    //     //   axios.get(urltwo)
+    //     //   .then((response)=> {
+    //     //     console.log(response)
+    //     //     setUser(response.data.user)
+    //     //   }).then(()=> {console.log(user)})
+    // }, [])
     console.log(val)
     const handleClick = () => {
         navigate('/registeration')

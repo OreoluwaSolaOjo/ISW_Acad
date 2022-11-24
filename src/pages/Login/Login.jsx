@@ -17,9 +17,9 @@ const Login = () => {
     // const onSubmit = data => console.log(data);
     const {val, setVal } = useContext(UserAuthContext);
     const navigate = useNavigate();
-    const [loading, setLoading] =useState(false);
+    const [loading, setLoading] = useState(false);
     const url = "https://localhost:7051/api/v1/auth/login"
-   
+   const [apierrors, setApiErrors] = useState("")
     async function onSubmit(data, e) {
         sessionStorage.removeItem('context')
  
@@ -36,12 +36,14 @@ const Login = () => {
        }).then(response => response.json())
        .then(json => {console.log(json)
        setVal(json)
-
-    })
-       .then(() =>{
-        setLoading(false)
+       setLoading(false)
+       if(json.responseMessage == "Invalid Credentials"){
+setApiErrors(json.responseMessage)
+       }else{
+       
         navigate(`/`)
         console.log(val)
+       }
     })
     }
     return (<>
@@ -58,7 +60,7 @@ const Login = () => {
           <img src={InterswitchAcademyLogo} alt="" />
             <form  onSubmit={handleSubmit(onSubmit)}>
             
-                {/* {errors.body && <p style={{ color: 'red' }}>Please check your last name</p>} */}
+                {apierrors && <p style={{ color: 'red' }}>{apierrors}, Please fill in your Email and Password correctly!!!</p>}
                 <label>Email:</label>
                 <input
                     type="text"

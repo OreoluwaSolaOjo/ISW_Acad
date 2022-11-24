@@ -82,6 +82,9 @@
     min-height: 5rem;
     background-color: var(--whiteshade);
     margin-bottom: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 h3{
     font-size: 1.2rem;
@@ -141,11 +144,34 @@ text-align: center;
 
 .dashboardsidebarcontent-lastdiv > div{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
+
 .dashboardsidebarcontent-lastdiv > div:hover{
     
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+
+
+} 
+@keyframes shake{
+0%{
+transform: translateX(0)
+}
+25%{
+transform: translateX(2px);
+}
+
+50%{
+transform: translateX(-4px);
+}
+100%{
+transform: translateX(0px);
+}
 }
 .dashboardsidebarcontent-lastdiv > div > img{
     height: 1.5rem;
@@ -155,7 +181,7 @@ text-align: center;
 }
 .dashboardsidebarcontent-lastdiv > div > h5{
     font-size: 0.7rem;
-    color: var(--blue-light);
+    color: var(--whiteshade);
 }
 .dashboardrightbar-section1{
     display: flex;
@@ -171,3 +197,28 @@ text-align: center;
     width: 20%;
     margin-right: 5%;
   }
+  .notifications-box-rightbar{
+   display: flex;
+   justify-content: center;
+   align-content: center;
+   align-items: center;
+    width: 15%;
+    height: auto;
+  }
+  .notifications-box-leftbar{
+     width: 2%;
+     height: auto;
+     background-color: var(--blue-light);
+   }
+  .notifications-box-rightbar img{
+    height: 30px;
+    width: 30px;
+  }
+  .notifications-box-content{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+  

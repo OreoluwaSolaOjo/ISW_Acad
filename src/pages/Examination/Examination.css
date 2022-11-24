@@ -153,7 +153,9 @@
   .rad-label:focus-within {
     background: rgba(42, 42, 42, 0.037);
   }
-  
+  .rad-label-active{
+background-color: var(--blue-light);
+  }
   .rad-input {
     position: absolute;
     left: 0;
@@ -163,6 +165,7 @@
     opacity: 0;
     z-index: -1;
   }
+
   
   .rad-design {
     width: 22px;
@@ -196,7 +199,18 @@
     letter-spacing: 3px;
     font-size: 18px;
     font-weight: 900;
-  
+
+    transition: .3s;
+  }
+
+  .rad-text-active{
+    color: var(--blue-light);
+    
+    margin-left: 14px;
+    letter-spacing: 3px;
+    font-size: 18px;
+    font-weight: 900;
+
     transition: .3s;
   }
   .optionsClass{
@@ -204,11 +218,34 @@
     flex-direction: column;
     justify-content: left;
   }
- 
+  .resultsClass{
+    display: flex;
+    flex-direction: row;
+   justify-content: center;
+  }
+  .resultsClass > div > img{
+  width: 40px;
+  height: 40px;
+   margin-right: 5%;
+  }
+  .resultsClass > div {
+     margin-right: 2%;
+    }
   .rad-input:checked~.rad-text {
     color: var(--ash-light);
   }
+  .resultsbuttondiv{
+    display: flex;
+    justify-content: center;
 
+  }
+  .resultstimeTaken{
+    display: flex;
+    justify-content: center;
+  }
+  .resultstimeTaken > p{
+    text-align: center;
+  }
   /* Buttons */
   .exam-container-mainbox-buttons{
     display: flex;

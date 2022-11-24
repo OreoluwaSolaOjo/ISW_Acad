@@ -29,7 +29,9 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<LandingPage />} />
+            <Route index element={<GetUserContext.Provider value={{ user, setUser }}>
+            <LandingPage />
+            </GetUserContext.Provider>} />
             <Route path="/registeration" element={<Registeration />} />
             <Route path="/login" element={<Login />} />
             <Route path="/reset_password" element={<Reset_Password />} />
