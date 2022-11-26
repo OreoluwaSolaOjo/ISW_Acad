@@ -23,12 +23,14 @@ import { useContext } from "react";
 import { UserAuthContext } from "../context/UserAuthContext";
 import axios from "axios";
 import { GetUserContext } from "../context/getUsercontext";
-import { useEffect } from "react";
-
+import { Slide } from "react-awesome-reveal";
 
 const LandingPage = () => {
     const navigate = useNavigate();
+
     const{val,setVal} =useContext(UserAuthContext)
+    // sessionStorage.setItem('loginval', JSON.stringify(val))
+    
     const { user, setUser } = useContext(GetUserContext)
     const urlone = `https://localhost:7051/api/v1/users/get-user/${val.id}`
     // const urltwo = `https://localhost:7051/api/v1/users/get-user/${id}`
@@ -56,7 +58,9 @@ const LandingPage = () => {
     return (
         <div className="landingpage-container">
             <div className="landingpage-section1">
+              
                        <div className="landingpage-section1-left">
+                       <Slide>
                         <h1>
                             Become <span>
                                 Adept in Devops, Software Engineering or Quality Assurance
@@ -71,10 +75,13 @@ const LandingPage = () => {
 
                             <Button styleClass='no-border-button' value='Watch Video' />
                         </div>
+                        </Slide>
                     </div>
-        
+                    
                 <div className="landingpage-section1-right">
+                
                     <img src={LandingPageImage} alt="LandingPageImage" />
+                    
                 </div>
             </div>
             {/* Landing Page Section 2 */}

@@ -8,6 +8,7 @@ import menu from "../../assets/menu.png";
 import x from "../../assets/x.png";
 import { useContext } from 'react';
 import { theUser, UserAuthContext } from '../../context/UserAuthContext';
+import { useLocalStorage } from '../CustomHooks/useLocalStorage';
 
 
 
@@ -17,15 +18,19 @@ const Navbar = () => {
   const navigate = useNavigate()
   const { val, setVal } = useContext(UserAuthContext)
   const toggle = () => setMNavBtn(!mNavBtn)
+
+ const sesh = JSON.parse(localStorage.getItem("loginval"))
   const handleLogout = () => {
     navigate('/')
     setVal(theUser)
+    localStorage.removeItem("loginval")
   }
   const handleDashboard = () => {
-    navigate(`/dashboard/${val.id}`)
+    navigate(`auth/dashboard/${sesh.id}`)
     setVal(theUser)
   }
-  return (
+  return (<>
+  
     <div className={mNavBtn ? 'navbar-container navbar-container-height' : 'navbar-container'}>
       {
         mNavBtn ? <div onClick={toggle} className='menu-image mobile' ><img src={x} alt="" /></div> :
@@ -69,7 +74,7 @@ const Navbar = () => {
           </h3></div>
         </Link>
 
-        {val.isAuthenticated ? <>
+        {val.isAuthenticated || sesh?.isAuthenticated ?<>
           <div onClick={handleLogout}><h3>
             Logout
           </h3></div>
@@ -98,7 +103,9 @@ const Navbar = () => {
 
       </div>
 
-    </div>
+    </div> 
+
+    </>
   );
 }
 

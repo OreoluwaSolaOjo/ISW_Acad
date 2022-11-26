@@ -1,88 +1,49 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  '& .MuiDialogContent-root': {
-    padding: theme.spacing(2),
-  },
-  '& .MuiDialogActions-root': {
-    padding: theme.spacing(1),
-  },
-}));
+export default function AlertDialog({openmodal, handleClose }) {
+  // const [open, setOpen] = React.useState(false);
 
-function BootstrapDialogTitle(props) {
-  const { children, onClose, ...other } = props;
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
 
-  return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-      {children}
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </DialogTitle>
-  );
-}
-
-BootstrapDialogTitle.propTypes = {
-  children: PropTypes.node,
-  onClose: PropTypes.func.isRequired,
-};
-
-export default function CustomizedDialogs() {
-  const [open, setOpen] = React.useState(false);
-  const navigate = useNavigate();
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-navigate('/')
-  };
+ 
 
   return (
     <div>
-   
-      <BootstrapDialog
+      {/* <Button variant="outlined" onClick={handleClickOpen}>
+        Open alert dialog
+      </Button> */}
+      <Dialog
+        open={openmodal}
         onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
       >
-        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Registeration Successful
-        </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            Please check your email for further action
-          </Typography>
-         \
+        <DialogTitle id="alert-dialog-title" style={{color: "#2195EC"}}>
+          Welcome to Interswitch Academy Examination!
+          Please adhere to the following rules.
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            1. Once you move to the next question, you can't review previous answers.
+            2.Make sure you submit your answers to preview your results.
+            Goodluck!
+          </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Home
+          {/* <Button onClick={handleClose}>Disagree</Button> */}
+          <Button onClick={handleClose} autoFocus>
+            Okay
           </Button>
         </DialogActions>
-      </BootstrapDialog>
+      </Dialog>
     </div>
   );
 }

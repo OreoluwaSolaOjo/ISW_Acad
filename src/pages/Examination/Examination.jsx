@@ -1,8 +1,5 @@
 import React from "react";
-import "./Examination.css";
-import next from "../../assets/next-white.png";
-import previous from "../../assets/previous-white.png";
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              import ISWAcademyLogo from '../../assets/InterswitchAcademyLogo.png';                                               
+import "./Examination.css";                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            import ISWAcademyLogo from '../../assets/InterswitchAcademyLogo.png';                                               
 import Button from "../../components/Button/Button";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -13,19 +10,30 @@ import useStateContext, { stateContext } from "../../context/useStateContext";
 import { GetUserContext } from "../../context/getUsercontext";
 import { useState } from "react";
 import { getFormatedTime } from "./helper";
+import AlertDialog from "../../components/Modal/Modal";
+
 const Examination = () => {
+ 
+  const [openmodal, setOpenModal] = useState(false);
   const navigate = useNavigate()
   const { val, setVal } = useContext(UserAuthContext)
+ 
+  // useEffect(()=>{
+  //   if (val.isAuthenticated === undefined) {
+  //     navigate('/'); // or loading indicator, etc...
+  //   }
+  // })
   const { user, setUser } = useContext(GetUserContext)
   const { context, setContext } = useStateContext();
   const { id } = useParams();
   const urlone = `https://localhost:7051/api/v1/training-track/getTrainingTrack/${id}`
-  const urltwo = `https://localhost:7051/api/QuestionsBank`
+  const urltwo = `https://localhost:7051/api/QuestionsBank/get-questions-by-trainingtrack/${user.trainingTrackId}`
   const [qns, setQns] = useState([]);
   const [qnsIndex, setqnsIndex] = useState(0);
   const [timeTaken, setTimeTaken] = useState(0);
+ 
 
-
+  
   let timer;
   const startTimer = () => {
     timer = setInterval(() => {
@@ -46,18 +54,23 @@ const Examination = () => {
     }
   }, [urltwo])
   const handleNextQuestion = () => {
-    if (qnsIndex < 4){
-    setqnsIndex(qnsIndex + 1)}
+    if (qnsIndex < 9){
+    setqnsIndex(qnsIndex + 1)
+    // When user gets to the next question refresh the state of the radio button
+   let allRadioButtons = document.querySelectorAll(`.rad-input`);
+   allRadioButtons.forEach(value=> value.checked = false)
+  }
     else{
-    navigate('/result')}
+    navigate('/auth/result')}
   }
   const handlePrevQuestion =()=>{
-    if (qnsIndex > 0 && qnsIndex <=4){
+    if (qnsIndex > 0 && qnsIndex <=9){
       setqnsIndex(qnsIndex - 1)}
+
   }
-  const[isActive, setIsActive] = useState(false)
+ 
   const updateAnswer = (qnsId, optionId) => {
-    setIsActive(true)
+   
     // first destructure array to change context since it is immutable
     const temp = [...context.selectedOptions]
 
@@ -83,7 +96,7 @@ const Examination = () => {
 
 
     // update the timetaken after completing the questions
-    if (qnsIndex < 4) {
+    if (qnsIndex < 9) {
       setContext({ selectedOptions: [...temp] })
       // setqnsIndex(qnsIndex +1)
     }
@@ -93,29 +106,46 @@ const Examination = () => {
       // navigate('/result')
     }
   }
+ 
   useEffect(() => {
+    setOpenModal(true)
+    const newVal = JSON.parse(localStorage.getItem('loginval'))
     Object.assign(context, user)
+    const config = {
+      headers: { Authorization: `Bearer ${newVal.token}` }
+  };
     console.log(user)
     console.log(context)
-    axios.get(urlone)
+    axios.get(urlone, config)
       .then((response) => {
         console.log(response)
       })
   }, [urlone])
+const userLogin = localStorage.getItem("loginval")
+
+
+// if(!newVal.isAuthenticated){
+ 
+// }
+const handleClose = () => {
+  setOpenModal(false);
+};
 
   const skill1 = {
-    width: (qnsIndex + 1) * 100 / 5 + '%',
+    width: (qnsIndex + 1) * 100 / 10 + '%',
 
 
   }
+
   return (<>
+  <AlertDialog  handleClose={handleClose} openmodal={openmodal}/>
     <div className="exam-container">
       <div className="exam-section1">
         <div className="exam-section1-logo">
           <img src={ISWAcademyLogo} alt="Interswitch Academy" />
         </div>
         <div className="exam-section1-heading">
-          <h3>Software Engineering Exam (in progress)</h3>
+          <h3>{user.trainingTracks.trainingTrackName}, Exam! (in progress)</h3>
         </div>
 
         <div className="exam-section1-progressbar">
@@ -131,7 +161,7 @@ const Examination = () => {
       {qns.length != 0 ?
         <div className="exam-container-mainbox">
           <div className="exam-container-mainbox-title">
-            <h3>{'Question ' + (qnsIndex + 1) + ' of 5 '}</h3>
+            <h3>{'Question ' + (qnsIndex + 1) + ' of 10 '}</h3>
             <h3>{getFormatedTime(timeTaken)}</h3>
 
           </div>
@@ -143,11 +173,12 @@ const Examination = () => {
 
                 <label key={index}  className="rad-label" onClick={() => {updateAnswer(
                   qns[qnsIndex].questionsBankId, index)
-                  
+              
                 }}>
-                  {/* <input type="radio" className="rad-input" name="rad" /> */}
-                  <div className="rad-design"></div>
-                  <div className="rad-text">{item}</div>
+                  <input type="radio" 
+                  className="rad-input" name="rad" />
+                  <div className="rad-design" ></div>
+                  <div className="rad-text" >{item}</div>
                 </label>)
             })}
           </div>
@@ -155,13 +186,13 @@ const Examination = () => {
           <div className="exam-container-mainbox-buttons">
 
 
-
-            <Button styleClass='no-border-button' value='Previous' onClick={handlePrevQuestion}/>
-            <Button styleClass='blue-button' value={ qnsIndex<4 ? 'Next' : 'Submit'} onClick={handleNextQuestion} />
+{/* 
+            <Button styleClass='no-border-button' value='Previous' onClick={handlePrevQuestion}/> */}
+            <Button styleClass='blue-button' value={ qnsIndex<9 ? 'Next' : 'Submit'} onClick={handleNextQuestion} />
 
           </div>
         </div> : null}
-    </div>
+    </div> 
   </>);
 }
 

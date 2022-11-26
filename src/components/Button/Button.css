@@ -7,7 +7,7 @@
     max-width: 280px;
     border: none;
     white-space: nowrap; 
-    margin: 3%;
+    margin:0 2% 0 0;
 }
 .blue-button:hover{
     color: var(--whiteshade);

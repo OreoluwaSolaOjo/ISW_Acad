@@ -5,7 +5,7 @@ const Page404 = () => {
     return ( <>
     
         <div className="gif-background-container">
-          <div><h1>Yo! You are making a mistake...</h1></div>  
+          <div><h1> You are making a mistake...</h1></div>  
 <div className="gif-background">
 
 </div>

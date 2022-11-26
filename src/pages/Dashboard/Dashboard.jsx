@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CloseIcon from '@mui/icons-material/Close';
 import profilepic from "../../assets/test1.jpg";
 import "./Dashboard.css";
 import examination from "../../assets/exam.png";
@@ -18,76 +19,82 @@ import { useContext } from "react";
 import { GetUserContext } from "../../context/getUsercontext";
 import active from "../../assets/active.png"
 import { theUser } from "../../context/UserAuthContext";
-import { Avatar } from "@mui/material";
+import { Alert, Avatar, Box, Collapse, IconButton } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PDFFile from "../../components/PDFFile/PDFFile";
+import useStateContext from "../../context/useStateContext";
 
 const Dashboard = () => {
+   
     const navigate = useNavigate()
-
+    const userLoggedIn = JSON.parse(localStorage.getItem("loginval"));
+  
     const { user, setUser } = useContext(GetUserContext)
     const [userErr, setUserErr] = useState(null);
     const { id } = useParams();
     const urlone = `https://localhost:7051/api/v1/users/get-user/${id}`
-
+    const urltwo = `https://localhost:7051/api/v1/users/update-user/${id}`
     // const urltwo = `https://localhost:7051/api/v1/users/get-user/${id}`
+ 
     const fetchData = async () => {
         try {
             const response = await axios.get(urlone)
             console.log(response)
+            if(userLoggedIn.id != response.data.user.id){
+                localStorage.removeItem("loginval")
+                navigate("/login")
+            }
             setUser(response.data.user)
         } catch (error) {
             console.log(error.message)
             setUserErr(error.message)
+            navigate("/login")
         }
     }
 
     useEffect(() => {
-        fetchData()
-        // axios.get(urlone)
-        //     .then((response) => {
-        //         console.log(response)
-        //         setUser(response.data.user)
-        //     }).then(() => { console.log(user) })
-        //   axios.get(urltwo)
-        //   .then((response)=> {
-        //     console.log(response)
-        //     setUser(response.data.user)
-        //   }).then(()=> {console.log(user)})
-    }, [])
+        fetchData();
+        // console.log(user)
+    },[id])
+    
+   
     const handleClick = () => {
-        navigate(`/examination/${user.trainingTrackId}`)
+        navigate(`/auth/examination/${user.trainingTrackId}`)
+    
     }
     const handleLogout = () => {
         sessionStorage.removeItem('context');
+        localStorage.removeItem('loginval');
         setUser(theUser)
         navigate('/')
     }
-    // const handleUpdateProfile = async() => {
-    //     try {
-    //         const response = await axios.post(urlone, {
-    //           firstName: context.firstName,
-    //           lastName: context.lastName,
-    //           gender: context.gender,
-    //           email: user.email,
-    //           trainingTrackId: context.trainingTrackId,
-    //           score: score,
-    //           timeTaken: context.timeTaken,
-    //           hasTakenExam: true,
-    //           degree: context.degree,
-    //           isCompletedNysc: context.isCompletedNysc,
-    //           isExperienced: context.isExperienced,})
-    //           console.log(response)
-          
-    //        navigate(`/dashboard/${context.id}`)
-    //        sessionStorage.removeItem('context')
-    //     } catch (error) {
-    //       setUserErr(error)
-    //       console.log(userErr)
-    //     }
-    // }
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+   
+    const [open, setOpen] = useState(false);
+    const { register, handleSubmit, watch, getValues, formState: { errors } } = useForm();
+    const handleUpdateProfile = async () => {
+        try {
+            const response = await axios.post(urltwo, {
+                firstName: getValues('firstName'),
+                lastName: getValues('lastName'),
+                gender: user.gender,
+                email: getValues('email'),
+                trainingTrackId: user.trainingTrackId,
+                score: user.score,
+                timeTaken: user.timeTaken,
+                hasTakenExam: user.hasTakenExam,
+                degree: user.degree,
+                isCompletedNysc: user.isCompletedNysc,
+                isExperienced: user.isExperienced,
+            })
+            console.log(response)
+            setOpen(true)
+        } catch (error) {
+            setUserErr(error)
+            console.log(userErr)
+        }
+    }
+
     const onSubmit = data => console.log(data);
     const displayYes = "flex";
     const displayNo = "none"
@@ -145,7 +152,7 @@ const Dashboard = () => {
                             }}>
                                 <img src={results} alt="" /> <h3>Results</h3>
                             </div>
-                            {user.hasTakenExam && user.score > 70 ? <div className="dashboardsidebarcontent" onClick={() => {
+                            {user.hasTakenExam && user.score >= 70 ? <div className="dashboardsidebarcontent" onClick={() => {
                                 setcurrentDisplayTwo(displayNo)
                                 setcurrentDisplayThree(displayNo)
                                 setcurrentDisplayOne(displayNo)
@@ -156,8 +163,8 @@ const Dashboard = () => {
                             </div>
                                 : null}
                         </div>
-                        <div className="dashboardsidebarcontent-lastdiv" >
-                            <div onClick={handleLogout}>
+                        <div className="dashboardsidebarcontent-lastdiv" onClick={handleLogout}>
+                            <div >
                                 <img src={signOut} alt="" /> <h5>Logout</h5>
                             </div>
                             {/* <div onClick={handleHome}>
@@ -173,19 +180,17 @@ const Dashboard = () => {
                     <div className="dashboardrightbar" style={{ display: currentDisplayOne }}>
                         <div className="dashboardrightbar-section1" >
                             <div>
-                                <h3>{
-                                    user.firstName
-                                } Dashboard</h3>
+                                <h3> {user.lastName}'s Dashboard</h3>
                             </div>
                             <div>
                                 <img src={InterswitchAcademyLogo} alt="" /></div>
                         </div>
                         <div className="dashboardrightbar-section2">
                             <div className="pendingexaminations">
-                                <h3>{user.firstName}'s Pending Examinations</h3>
-                                <div className="pendingexaminations-box">
 
-                                </div>
+                                {/* <div className="pendingexaminations-box">
+                                <h3>Hi {user.firstName}, {user.lastName}</h3>
+                                </div> */}
                                 <div className="notifications">
                                     <h3>Notifications</h3>
 
@@ -216,12 +221,34 @@ const Dashboard = () => {
                         <div className="dashboardrightbar-section2">
                             <div className="pendingexaminations">
                                 <h3>Edit Profile</h3>
+                                <Box sx={{ width: '100%' }}>
+                                    <Collapse in={open}>
+                                        <Alert
+                                            action={
+                                                <IconButton
+                                                    aria-label="close"
+                                                    color="inherit"
+                                                    size="small"
+                                                    onClick={() => {
+                                                        setOpen(false);
+                                                    }}
+                                                >
+                                                    <CloseIcon fontSize="inherit" />
+                                                </IconButton>
+                                            }
+                                            sx={{ mb: 2 }}
+                                        >
+                                            Profile Update Successful!
+                                        </Alert>
+                                    </Collapse>
+
+                                </Box>
                                 <div className="editprofile-box">
                                     <form onSubmit={handleSubmit(onSubmit)}>
                                         <label>First Name:</label>
                                         <input
                                             type="text"
-                                            value={user.firstName}
+                                            placeholder={user.firstName}
                                             {...register("firstName", {
                                                 required: "Please fill in your first name",
                                                 minLength: {
@@ -234,7 +261,7 @@ const Dashboard = () => {
                                         <p className="errors">{errors.firstName?.message}</p>
                                         <label>Last Name:</label>
                                         <input
-                                            value={user.lastName}
+                                            placeholder={user.firstName}
                                             type="text"
                                             {...register("lastName", {
                                                 required: "Please fill in your Last name",
@@ -252,7 +279,7 @@ const Dashboard = () => {
                                         <label>Email:</label>
                                         <input
                                             type="text"
-                                            value={user.email}
+                                            placeholder={user.email}
                                             {...register("email", {
                                                 required: "Please fill in your Email",
                                                 minLength: {
@@ -267,10 +294,10 @@ const Dashboard = () => {
                                         <p className="errors">{errors.email?.message}</p>
 
 
-                                        
+
 
                                         <div className="Button-div-update-profile">
-                                            <Button value='Update Profile' styleClass='no-border-button' type="submit" ></Button>
+                                            <Button value='Update Profile' styleClass='no-border-button' type="submit" onClick={handleUpdateProfile} ></Button>
                                         </div>
 
 
@@ -317,7 +344,7 @@ const Dashboard = () => {
                             <div className="pendingexaminations">
                                 <h3>Examination Results</h3>
                                 <div className="pendingexaminations-box">
-                                    <div>  {user.hasTakenExam ? <h4>You scored {user.score} in the entrance exams</h4> : <h4>You have no results yet</h4>}
+                                    <div>  {user.hasTakenExam ? (user.score < 70 ? <h4>You scored {user.score}% in the entrance exams! You did not meet the cut off mark!</h4> : <h4>Congrats!!! You scored {user.score} and you have been giving a place in the Academy</h4>) : <h4>You have not taken the entrance exams.</h4>}
                                     </div>
                                 </div>
 
@@ -326,16 +353,16 @@ const Dashboard = () => {
 
                         </div>
                     </div>
-                    {user.score > 70 ? <div className="dashboardrightbar" style={{ display: currentDisplayFive }}>
+                    {user.score >= 70 ? <div className="dashboardrightbar" style={{ display: currentDisplayFive }}>
                         <div className="dashboardrightbar-section1" >
-                            <h3>{user.firstName}'s Results</h3>
+                            <h3>{user.firstName}'s Offer Letter</h3>
                             <div>
                                 <img src={InterswitchAcademyLogo} alt="" /></div>
                         </div>
                         <div className="dashboardrightbar-section2">
                             Download your offer letter here
-                            <PDFDownloadLink document={<PDFFile/>}>
-                            {({loading}) => (loading ? <button>Loading Document...</button> : <button>Download</button> )}
+                            <PDFDownloadLink document={<PDFFile />}>
+                                {({ loading }) => (loading ? <Button styleClass="blue-button" value="Loading Document..." /> : <Button styleClass="blue-button" value="Download" />)}
                             </PDFDownloadLink>
 
 

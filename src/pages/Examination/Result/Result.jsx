@@ -40,7 +40,7 @@ const Result = () => {
     let tempScore = qna.reduce((acc, curr) => {
       return curr.answer = curr.selected ? acc + 1 : acc;
     }, 0)
-    let tempScorePercentage = tempScore * 20
+    let tempScorePercentage = tempScore * 10
     setScore(tempScorePercentage)
   }
   const navigate = useNavigate();
@@ -63,7 +63,7 @@ const Result = () => {
           isExperienced: context.isExperienced,})
           console.log(response)
       
-       navigate(`/dashboard/${context.id}`)
+       navigate(`/auth/dashboard/${context.id}`)
        sessionStorage.removeItem('context')
     } catch (error) {
       setUserErr(error)
@@ -77,7 +77,7 @@ const Result = () => {
           <img src={ISWAcademyLogo} alt="Interswitch Academy" />
         </div>
         <div className="exam-section1-heading">
-          <h3>Software Engineering Exam (Completed!)</h3>
+          <h3>{context.trainingTracks.trainingTrackName}, Exam! (Completed!)</h3>
         </div>
 
 

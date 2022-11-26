@@ -7,26 +7,14 @@ import "./Registeration.css";
 import CloseIcon from '@mui/icons-material/Close';
 import InterswitchAcademyLogoAnimation from "../../assets/InterswitchAcademyLogoAnimation.mp4";
 
-import { BallTriangle } from "react-loader-spinner";
 import { Alert, Box, Collapse, IconButton } from "@mui/material";
 
-const Registration = ({ handleClickOpen }) => {
-    const { register, setValue, handleSubmit, watch, formState: { errors } } = useForm()
+const Registration = () => {
+    const { register, setValue, handleSubmit, reset, watch, formState: { errors } } = useForm()
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    // const onSubmit = (data)=> console.log(...data)
-    // const[values, setValues] = useState({
-    //     firstName:"",
-    //     lastName:"",
-    //     gender: "",
-    //     email: "",
-    //     password: "",
-    //     training_track: "",
-    //     class_of_degree: "",
-    //     experience: "",
-
-    // })
+  
     const Gender = [
         {
             id: 1,
@@ -111,16 +99,12 @@ const Registration = ({ handleClickOpen }) => {
                 } else {
                     console.log(json)
                     setOpen(true);
-                   
-                }
-                
+                    reset();  
+                }           
             })
     }
-
-
     return (
         <>
-
             {loading ?
                 <div className="videoClass">
                     <video type="video/mp4" src={InterswitchAcademyLogoAnimation} loop muted autoPlay={"autoplay"} />
@@ -128,8 +112,9 @@ const Registration = ({ handleClickOpen }) => {
                 <div className="registeration-div">
 
                     <img src={InterswitchAcademyLogo} alt="" />
+                    
                     {apierrors && <p style={{ color: 'red' }}>{apierrors}, Please fill in the form correctly!!!</p>}
-                    <Box sx={{ width: '100%' }}>
+                    <Box sx={{ width: '100%',}}>
                         <Collapse in={open}>
                             <Alert
                                 action={
@@ -146,7 +131,7 @@ const Registration = ({ handleClickOpen }) => {
                                 }
                                 sx={{ mb: 2 }}
                             >
-                                Registeration Successful, Please Check your email for further action!
+                                Registeration Successful, Please proceed to login!
                             </Alert>
                         </Collapse>
 
@@ -158,27 +143,28 @@ const Registration = ({ handleClickOpen }) => {
                             {...register("FirstName", {
                                 required: "Please fill in your first name",
                                 minLength: {
-                                    value: 4,
-                                    message: "The minimum first name length is 4"
+                                    value: 3,
+                                    message: "The minimum first name length is 3"
                                 }
                             })}
 
                         />
-                        <p className="errors">{errors.firstName?.message}</p>
+           
+                        <p className="errors">{errors.FirstName?.message}</p>
                         <label>Last Name:</label>
                         <input
                             type="text"
                             {...register("LastName", {
                                 required: "Please fill in your Last name",
                                 minLength: {
-                                    value: 4,
-                                    message: "The minimum first name length is 4"
+                                    value: 3,
+                                    message: "The minimum first name length is 3"
                                 }
                             })}
 
 
                         />
-                        <p className="errors">{errors.lastName?.message}</p>
+                        <p className="errors">{errors.LastName?.message}</p>
                         <label  >Gender</label>
 
                         <select name="Gender" id="Gender"
@@ -198,16 +184,15 @@ const Registration = ({ handleClickOpen }) => {
                             type="text"
                             {...register("Email", {
                                 required: "Please fill in your Email",
-                                minLength: {
-                                    value: 4,
-                                    message: "The minimum first name length is 4"
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                    message: "Invalid email address"
                                 }
+                             
                             }
                             )}
-
-
                         />
-                        <p className="errors">{errors.email?.message}</p>
+                        <p className="errors">{errors.Email?.message}</p>
 
                         <label>Password:</label>
                         <input
@@ -215,14 +200,14 @@ const Registration = ({ handleClickOpen }) => {
                             {...register("Password", {
                                 required: "Please fill in your Password",
                                 minLength: {
-                                    value: 4,
+                                    value: 8,
                                     message: "The minimum first name length is 8"
                                 }
                             })}
 
 
                         />
-
+                        <p className="errors">{errors.Password?.message}</p>
                         <label >Choose a training track:</label>
                         <select name="TrainingTrackId" id="TrainingTrackId" {...register("TrainingTrackId")}>
                             {TrainingTrack.map((train, id) => {
@@ -243,7 +228,7 @@ const Registration = ({ handleClickOpen }) => {
                             <input type="checkbox" id="IsCompletedNysc" name="IsCompletedNysc " value={checked} onChange={handleCheckboxChange}  {...register("IsCompletedNysc")} />
                         </div>
                         <div className="checkbox">
-                            <label> I have 03years experience in my chosen field</label>
+                            <label> I have 0-3years experience in my chosen field</label>
                             <input type="checkbox" id="IsExperienced" name="IsExperienced" value={checkedtwo} onChange={handleCheckboxChangetwo}  {...register("IsExperienced")} />
                         </div>
                         <Button value='Register' styleClass='blue-button' type="submit"></Button>
@@ -257,30 +242,6 @@ const Registration = ({ handleClickOpen }) => {
 
                 </div>
             }
-            {/* <Box sx={{ width: '100%' }}>
-      <Collapse in={open}>
-        <Alert
-          action={
-            <IconButton
-              aria-label="close"
-              color="inherit"
-              size="small"
-              onClick={() => {
-                setOpen(false);
-              }}
-            >
-              <CloseIcon fontSize="inherit" />
-            </IconButton>
-          }
-          sx={{ mb: 2 }}
-        >
-          Close me!
-        </Alert>
-      </Collapse>
-   
-    </Box>
-   */}
-
         </>
     );
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Cards.css';
+import { Slide } from "react-awesome-reveal";
 
 
 
@@ -20,7 +21,7 @@ const Cards = ({ cardClass, mainText, image, heading}) => {
         <div className="cardone-secondimage">
             {/* <img src={imagetwo} alt={`${imagetwo}`} /> */}
         </div>
-      
+        
     </div>
 
     );

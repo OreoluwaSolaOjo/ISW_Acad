@@ -13,3 +13,15 @@ const Layout = () => {
 }
 
 export default Layout; 
+
+export const SecondLayout = () => {
+
+    return (
+        <>
+            <Navbar />
+                <Outlet />
+      
+        </>
+    );
+}
+
