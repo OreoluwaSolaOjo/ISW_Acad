@@ -5,25 +5,22 @@ import Button from "../../components/Button/Button";
 import { useForm } from "react-hook-form";
 import "./Login.css";
 import InterswitchAcademyLogoAnimation from "../../assets/InterswitchAcademyLogoAnimation.mp4";
-import { BallTriangle } from "react-loader-spinner";
 import { useContext } from "react";
 import { UserAuthContext } from "../../context/UserAuthContext";
-import { useEffect } from "react";
-import useStateContext, { getFreshContext } from "../../context/useStateContext";
+
 
 
 const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     // const onSubmit = data => console.log(data);
     const { val, setVal } = useContext(UserAuthContext);
+    localStorage.removeItem('loginval')
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const url = "https://localhost:7051/api/v1/auth/login"
-    
     const [apierrors, setApiErrors] = useState("")
     async function onSubmit(data, e) {
         sessionStorage.removeItem('context')
-
         console.log(data)
         setLoading(true)
         fetch(url, {

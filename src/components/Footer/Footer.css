@@ -61,7 +61,7 @@
     max-height: 1.6rem;
 }
 .rightreserved{
-border-top: 0.05rem solid var(--ash-dark);
+border-top: 0.05rem solid var(--ash-light);
 margin-top: 2%;
 }
 .rightreserved p {

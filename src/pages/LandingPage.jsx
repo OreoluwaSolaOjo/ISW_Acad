@@ -27,8 +27,11 @@ import { Slide } from "react-awesome-reveal";
 
 const LandingPage = () => {
     const navigate = useNavigate();
-
+    const userLoggedIn = JSON.parse(localStorage.getItem("loginval"));
     const{val,setVal} =useContext(UserAuthContext)
+    const handleClickDashboard =()=>{
+        navigate(`auth/dashboard/${userLoggedIn.id}`)
+    }
     // sessionStorage.setItem('loginval', JSON.stringify(val))
     
     const { user, setUser } = useContext(GetUserContext)
@@ -67,13 +70,14 @@ const LandingPage = () => {
                             </span>  with 0-3 years experience
                         </h1>
                         <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique fugit consequatur libero voluptates officia aspernatur.
-                        </p>
+                            Learn in one of the biggest Fintech Companies in the world and be a part of the solution for the next world changing idea                        </p>
                         {/* <Typewriter/> */}
                         <div>
-                            <Button styleClass='blue-button' value='Apply Now' />
+                            {userLoggedIn?.isAuthenticated ? <Button styleClass='blue-button' value='Dashboard' onClick={handleClickDashboard} /> :
+                           <><Button styleClass='blue-button' value='Apply Now' />
 
                             <Button styleClass='no-border-button' value='Watch Video' />
+                            </> }
                         </div>
                         </Slide>
                     </div>
@@ -93,13 +97,13 @@ const LandingPage = () => {
                 <div className="landingpage-section2-carddiv-row">
 
                     <Cards cardClass='cardOne'
-                        mainText='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto sit perspiciatis eum consequatur alias quisquam tempore'
+                        mainText='Learn the basics of fundamentals of Electronic payments and be certified'
                         image={professional}
                         alt='Professional'
                         heading='Become a pro in fintech' />
 
                     <Cards cardClass='cardOne'
-                        mainText='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto sit perspiciatis eum consequatur alias quisquam tempore '
+                        mainText='Network with other software engineers and fintech personnel that make the game playing decisions in the market in 2022 '
                         image={reallife}
                         alt='Real Life'
                         heading='Make Life-changing connections' />
@@ -114,18 +118,18 @@ const LandingPage = () => {
                 <div className="landingpage-section2-carddiv-row">
 
                     <Cards cardClass='cardOne'
-                        mainText='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto sit perspiciatis eum consequatur alias quisquam tempore'
+                        mainText='Get trained with a curriculum that is at par with the companies in the world'
                         image={candidate}
                         alt='Candidate'
                         heading='Best Curriculum' />
 
                     <Cards cardClass='cardOne'
-                        mainText='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto sit perspiciatis eum consequatur alias quisquam tempore'
+                        mainText='Get paid at a higher rate than your colleagues in the industry'
                         image={salary}
                         alt='Salary'
                         heading='Competitive Salaries' />
                     <Cards cardClass='cardOne'
-                        mainText='Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto sit perspiciatis eum consequatur alias quisquam tempore'
+                        mainText='Stand a chance to get employed if you successfully get through the training at the Switch'
                         image={JobOpportunities}
                         alt='Job Opportunities'
                         heading='Get Employed' />
@@ -175,7 +179,7 @@ const LandingPage = () => {
                     <div className="landingpage-section3-heading-details-right">
                         <div><h1>Software Engineering</h1></div>
                         <div>
-                            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quaerat rem at voluptas! Accusamus velit minus rerum, amet itaque maiores culpa dolor facilis deserunt qui iure praesentium, delectus blanditiis ex?</h2>
+                            <h3>Do you want to build solutions through logical thinking and programming? The software Engineering track is specially designed to push your mental strengths to the limit and bring out the best in you! Get in and Get intensive!</h3>
                         </div>
                         <div className="landingpage-section3-heading-details-right-bottomdiv">
                             <div className="landingpage-section3-heading-details-right-bottomdiv-line">
@@ -195,7 +199,7 @@ const LandingPage = () => {
                     <div className="landingpage-section3-heading-details-right">
                         <div><h1>Devops</h1></div>
                         <div>
-                            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quaerat rem at voluptas! Accusamus velit minus rerum, amet itaque maiores culpa dolor facilis deserunt qui iure praesentium, delectus blanditiis ex?</h2>
+                            <h3>Development Operations track aims to train candidates to become specialists in different technologies that DevOps personnel use in our company. Interested in this track? Feel free to apply now and take the entrance examinations</h3>
                         </div>
                         <div className="landingpage-section3-heading-details-right-bottomdiv">
                             <div className="landingpage-section3-heading-details-right-bottomdiv-line">
@@ -218,7 +222,7 @@ const LandingPage = () => {
                 <img src={QualityAssurance} alt="Quality Assurance" />
                 <h1>Quality Assurance</h1></div> */}
                         <div>
-                            <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quaerat rem at voluptas! Accusamus velit minus rerum, amet itaque maiores culpa dolor facilis deserunt qui iure praesentium, delectus blanditiis ex?</h2>
+                            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque quaerat rem at voluptas! Accusamus velit minus rerum, amet itaque maiores culpa dolor facilis deserunt qui iure praesentium, delectus blanditiis ex?</h3>
                         </div>
                         <div className="landingpage-section3-heading-details-right-bottomdiv">
                             <div className="landingpage-section3-heading-details-right-bottomdiv-line">
@@ -266,7 +270,9 @@ const LandingPage = () => {
                         Interested in Joining Us?
                     </h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel illum ipsum, quidem facilis commodi deserunt laboriosam fugit, quia minus, dicta nostrum. Eos veniam voluptatem esse blanditiis, tempora possimus quas libero quia impedit nulla eaque, officia, suscipit sapiente non sit voluptate! Fugit, eius veniam a maxime alias ullam deleniti consectetur in.
+                Interwitch Academy entry level trainings run multiple times each year.
+                We receive a vast number of applications, so try apply early, prepare for the entrance examinations and get a feedback from us based on your performance.
+                Click on the button below to get started!
                     </p>
                     <div className="landingpage-section6-maindiv-button">
                         <Button styleClass='blue-button' value='Apply Now' onClick={handleClick} />

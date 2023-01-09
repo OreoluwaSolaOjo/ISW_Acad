@@ -23,10 +23,11 @@ const Result = () => {
     axios.post(url, ids)
       .then(res => {
         console.log(res)
-        const qna = context.selectedOptions
-          .map(x => ({
+        // merge answers and selected options
+        const qna = context.selectedOptions.map(x => ({
             ...x,
-            ...(res.data.find(y => y.qnsId == x.qnsId))
+            // ...(res.data.find(y => y.qnsId == x.qnsId))
+            ...(res.data.find(y => y.questionsBankId == x.qnsId))
           }))
         setQnAnswers(qna)
         calculateScores(qna)
@@ -36,9 +37,10 @@ const Result = () => {
 
   // Function to calculate scores
   const calculateScores = qna => {
+    console.log(qnAnswers)
     // use the array reduce method to calculate the scores and add to each correct answer
     let tempScore = qna.reduce((acc, curr) => {
-      return curr.answer = curr.selected ? acc + 1 : acc;
+      return curr.answer == curr.selected ? acc + 1 : acc;
     }, 0)
     let tempScorePercentage = tempScore * 10
     setScore(tempScorePercentage)
@@ -47,7 +49,6 @@ const Result = () => {
   const [userErr, setUserErr] = useState(null);
   const urlone = `https://localhost:7051/api/v1/users/update-user/${context.id}`
   const handleSubmitScores = async () => {
-   
     try {
         const response = await axios.post(urlone, {
           firstName: context.firstName,
@@ -79,15 +80,10 @@ const Result = () => {
         <div className="exam-section1-heading">
           <h3>{context.trainingTracks.trainingTrackName}, Exam! (Completed!)</h3>
         </div>
-
-
       </div>
       <div className="exam-container-mainbox">
         <div className="exam-container-mainbox-title">
-
-
         </div>
-
         <p></p>
         <div className="resultsClass">
           <div>
@@ -104,10 +100,8 @@ const Result = () => {
         {/* <Button styleClass='no-border-button' value='Homepage' /> */}
             <Button styleClass='blue-button' value='Submit'  onClick={handleSubmitScores}/>
             </div>
-
       </div>
     </div>
-
   )
 }
 export default Result;

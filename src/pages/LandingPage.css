@@ -249,7 +249,7 @@ padding: 10%;
 background-color: var(--blue-dark);
 width: 100%;
 border-radius: 1.5rem;
-min-height: 55vh;
+min-height: 45vh;
 padding-left: 10%;
 padding-right: 10%;
 margin-top: 5%;
@@ -326,6 +326,9 @@ text-align: center;
         width: 100%;
    
        
+    }
+    .landingpage-section1 > css2qfv45{
+
     }
     .landingpage-section2 h1{
        padding-left: 5%;

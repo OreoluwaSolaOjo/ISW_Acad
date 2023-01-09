@@ -1,46 +1,62 @@
-
 .countdown-timer {
     position: absolute;
     width: 55%;
     height: 100px;
- opacity: 1 ;
+    opacity: 1;
     font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--blue-light);
-    border-radius: 1.5rem;
-    border: 0px;
-    
+    /* background-color: var(--blue-light); */
+    /* border-radius: 1.5rem; */
+    border: 0.2rem solid var(--whiteshade);
+
 }
-.countdown-timer:hover{
+
+/* .countdown-timer:hover {
     background-color: var(--red-light);
-    transform: scale(1.05);
+
+} */
+.two-numbers-last{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
 }
-.countdown-timer:focus{
+.two-numbers-last > h2{
+    color: var(--whiteshade);
+}
+.countdown-timer:focus {
     background-color: var(--red-light);
 }
-.countdown-timer span {
-  
-    color: var(--ash-background);
-}
+
+
 
 .two-numbers {
-    width: 25%;
-    margin-left: 5%;
-    white-space: nowrap
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    border: 1rem var(--whiteshade);
+    border-right: 0.2rem solid var(--whiteshade);
+    color: var(--ash-background);
+    height: 100%;
+    align-items: center;
 }
-
-@media screen and (max-width: 30rem){
+.two-numbers > h2 {
+    color: var(--whiteshade);
+}
+@media screen and (max-width: 30rem) {
     .countdown-timer {
         width: 90%;
         font-size: 1rem;
     }
+
     .two-numbers {
         width: 40%;
         margin-left: 2%;
         white-space: nowrap;
         margin-right: 2%;
     }
-    
+
 }

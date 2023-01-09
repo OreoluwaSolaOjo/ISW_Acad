@@ -52,7 +52,7 @@ const Examination = () => {
     return () => {
       clearInterval(timer)
     }
-  }, [urltwo])
+  }, [])
   const handleNextQuestion = () => {
     if (qnsIndex < 9){
     setqnsIndex(qnsIndex + 1)
@@ -139,6 +139,7 @@ const handleClose = () => {
 
   return (<>
   <AlertDialog  handleClose={handleClose} openmodal={openmodal}/>
+  {Object.entries(user).length > 0 ?
     <div className="exam-container">
       <div className="exam-section1">
         <div className="exam-section1-logo">
@@ -192,7 +193,7 @@ const handleClose = () => {
 
           </div>
         </div> : null}
-    </div> 
+    </div> : null}
   </>);
 }
 

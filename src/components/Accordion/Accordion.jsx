@@ -43,7 +43,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function CustomizedAccordions() {
-  const [expanded, setExpanded] = React.useState('panel1');
+  const [expanded, setExpanded] = React.useState();
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -61,7 +61,6 @@ export default function CustomizedAccordions() {
 2.	Candidates must be 18 AND ABOVE
 3.	Candidates must have graduated with a 2.2 AND ABOVE
 4.	Candidates must have 0-3years
-
 
           </Typography>
         </AccordionDetails>

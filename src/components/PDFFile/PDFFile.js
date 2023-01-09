@@ -8,7 +8,7 @@ import { GetUserContext } from "../../context/getUsercontext";
 
 
 const PDFFile = () => {
-    
+
     const styles = StyleSheet.create({
         body: {
             paddingTop: 35,
@@ -50,23 +50,20 @@ const PDFFile = () => {
             <Page style={styles.body}>
                 <Text style={styles.header} fixed></Text>
                 <Text style={styles.text}>
-                    
+
                     Interswitch Group.
                     Lagos, Nigeria
-                    <br/>
                     Dear Candidate,
                     RE: INTERNSHIP PLACEMENT AT INTERSWITCH LIMITED
-                    <br/>
-                    We are pleased to inform you of the opportunity to undertake your Internship Program for the
-                    duration of 3 months at Interswitch Limited.
-                    This offer of employment takes effect from Monday August 1, 2022.
-                    Your gross monthly allowance will be Three Hundred and Fourteen Thousand, Seven Hundred and
-                    Sixty-Nine Naira, Seven kobo (N314,769.07 only - breakdown attached)
-                    Our terms and conditions of this placement is attached herewith.
-                    We are confident you will rise to this challenge and wish you a rewarding experience at Interswitch.
-                    Yours Sincerely,
-                    For: Interswitch Limited
-                </Text>
+                We are pleased to inform you of the opportunity to undertake your Internship Program for the
+                duration of 3 months at Interswitch Limited.
+                This offer of employment takes effect from Monday August 1, 2022.
+                Your gross monthly allowance will be Three Hundred and Fourteen Thousand, Seven Hundred and
+                Sixty-Nine Naira, Seven kobo (N314,769.07 only - breakdown attached)
+                Our terms and conditions of this placement is attached herewith.
+                We are confident you will rise to this challenge and wish you a rewarding experience at Interswitch.
+                Yours Sincerely,
+                For: Interswitch Limited </Text>
                 <Text
                     style={styles.pageNumber}
                     render={({ pageNumber, totalPages }) =>

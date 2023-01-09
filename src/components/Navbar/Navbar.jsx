@@ -24,6 +24,7 @@ const Navbar = () => {
     navigate('/')
     setVal(theUser)
     localStorage.removeItem("loginval")
+    sessionStorage.removeItem("context")
   }
   const handleDashboard = () => {
     navigate(`auth/dashboard/${sesh.id}`)
@@ -74,7 +75,7 @@ const Navbar = () => {
           </h3></div>
         </Link>
 
-        {val.isAuthenticated || sesh?.isAuthenticated ?<>
+        {sesh?.isAuthenticated ?<>
           <div onClick={handleLogout}><h3>
             Logout
           </h3></div>
